@@ -1,0 +1,4293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python & Machine Learning – Complete Exam Answer Guide</title>
+<meta name="description" content="Comprehensive 15-mark answers for Python and Machine Learning exam covering all 5 modules.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg2: #161b22;
+    --bg3: #1c2230;
+    --card: #1e2736;
+    --border: #30363d;
+    --accent: #58a6ff;
+    --accent2: #79c0ff;
+    --accent3: #56d364;
+    --warn: #d29922;
+    --danger: #f85149;
+    --purple: #bc8cff;
+    --pink: #ff7b72;
+    --text: #e6edf3;
+    --text2: #8b949e;
+    --text3: #c9d1d9;
+    --code-bg: #161b22;
+    --module1: #238636;
+    --module2: #1f6feb;
+    --module3: #9e6a03;
+    --module4: #8957e5;
+    --module5: #bf4b8a;
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text3);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #0d1117 0%, #1a1f2e 50%, #0d1117 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 20px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(88,166,255,0.07) 0%, transparent 60%);
+    animation: pulse 6s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
+  header h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #58a6ff, #79c0ff, #56d364);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index:1;
+  }
+  header p { color: var(--text2); margin-top: 12px; font-size: 1rem; position: relative; z-index:1; }
+  .badge-row { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; position: relative; z-index:1; }
+  .badge {
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .b1{background:rgba(35,134,54,0.25);color:#56d364;border:1px solid #238636;}
+  .b2{background:rgba(31,111,235,0.25);color:#79c0ff;border:1px solid #1f6feb;}
+  .b3{background:rgba(158,106,3,0.25);color:#e3b341;border:1px solid #9e6a03;}
+  .b4{background:rgba(137,87,229,0.25);color:#bc8cff;border:1px solid #8957e5;}
+  .b5{background:rgba(191,75,138,0.25);color:#ff7eb3;border:1px solid #bf4b8a;}
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,17,23,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  nav ul { list-style: none; display: inline-flex; gap: 0; }
+  nav ul li a {
+    display: block;
+    padding: 16px 20px;
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  nav ul li a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* MAIN */
+  main { max-width: 1000px; margin: 0 auto; padding: 40px 20px 80px; }
+
+  /* MODULE SECTIONS */
+  .module-section { margin-bottom: 80px; }
+  .module-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+    padding: 28px 32px;
+    border-radius: var(--radius);
+    position: relative;
+    overflow: hidden;
+  }
+  .module-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    opacity: 0.1;
+  }
+  .m1-header { background: linear-gradient(135deg, rgba(35,134,54,0.2), rgba(35,134,54,0.05)); border: 1px solid #238636; }
+  .m2-header { background: linear-gradient(135deg, rgba(31,111,235,0.2), rgba(31,111,235,0.05)); border: 1px solid #1f6feb; }
+  .m3-header { background: linear-gradient(135deg, rgba(158,106,3,0.2), rgba(158,106,3,0.05)); border: 1px solid #9e6a03; }
+  .m4-header { background: linear-gradient(135deg, rgba(137,87,229,0.2), rgba(137,87,229,0.05)); border: 1px solid #8957e5; }
+  .m5-header { background: linear-gradient(135deg, rgba(191,75,138,0.2), rgba(191,75,138,0.05)); border: 1px solid #bf4b8a; }
+  .module-num {
+    font-size: 2.5rem;
+    font-weight: 800;
+    opacity: 0.3;
+  }
+  .module-header h2 { font-size: 1.6rem; font-weight: 700; }
+  .m1-header h2 { color: #56d364; }
+  .m2-header h2 { color: #79c0ff; }
+  .m3-header h2 { color: #e3b341; }
+  .m4-header h2 { color: #bc8cff; }
+  .m5-header h2 { color: #ff7eb3; }
+
+  /* QUESTION CARD */
+  .q-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 32px;
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .q-card:hover { box-shadow: 0 0 0 1px var(--accent), 0 8px 32px rgba(88,166,255,0.08); }
+  .q-header {
+    padding: 18px 24px;
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .q-num {
+    background: var(--accent);
+    color: #0d1117;
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .q-header h3 { font-size: 1rem; font-weight: 600; color: var(--text); line-height: 1.5; }
+  .marks-badge {
+    margin-left: auto;
+    background: rgba(86,211,100,0.15);
+    color: #56d364;
+    border: 1px solid rgba(86,211,100,0.3);
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .q-body { padding: 24px; }
+  .q-body h4 {
+    color: var(--accent2);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 20px 0 8px;
+    padding-left: 12px;
+    border-left: 3px solid var(--accent);
+  }
+  .q-body h4:first-child { margin-top: 0; }
+  .q-body p { margin-bottom: 12px; color: var(--text3); }
+  .q-body ul, .q-body ol { padding-left: 22px; margin-bottom: 12px; }
+  .q-body li { margin-bottom: 6px; color: var(--text3); }
+  .q-body strong { color: var(--text); }
+
+  /* CODE */
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    overflow-x: auto;
+    margin: 14px 0;
+    position: relative;
+  }
+  pre::before {
+    content: 'Python';
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 0.68rem;
+    color: var(--text2);
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(255,255,255,0.05);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: #e6edf3;
+    line-height: 1.7;
+  }
+  .inline-code {
+    background: rgba(88,166,255,0.1);
+    color: var(--accent2);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85em;
+  }
+
+  /* TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.88rem;
+  }
+  th {
+    background: rgba(88,166,255,0.1);
+    color: var(--accent);
+    padding: 10px 14px;
+    text-align: left;
+    border: 1px solid var(--border);
+    font-weight: 600;
+  }
+  td {
+    padding: 9px 14px;
+    border: 1px solid var(--border);
+    color: var(--text3);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: rgba(88,166,255,0.06);
+    border: 1px solid rgba(88,166,255,0.2);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 14px 0;
+  }
+  .success-box {
+    background: rgba(86,211,100,0.06);
+    border: 1px solid rgba(86,211,100,0.2);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 14px 0;
+  }
+  .warn-box {
+    background: rgba(210,153,34,0.06);
+    border: 1px solid rgba(210,153,34,0.2);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 14px 0;
+  }
+
+  /* DIAGRAM */
+  .diagram {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin: 14px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text2);
+    white-space: pre;
+    overflow-x: auto;
+  }
+
+  /* OUTPUT BOX */
+  .output-box {
+    background: #0a0d12;
+    border: 1px solid #30363d;
+    border-left: 3px solid var(--accent3);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-top: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    color: #56d364;
+  }
+  .output-box::before { content: '▶ Output'; display: block; color: var(--text2); font-size: 0.7rem; margin-bottom: 6px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--text2);
+    font-size: 0.85rem;
+  }
+
+  /* PRINT */
+  @media print {
+    header::before { display: none; }
+    .q-card:hover { box-shadow: none; }
+    nav { display: none; }
+    body { background: white; color: #000; }
+    .q-card { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🎓 Python & Machine Learning</h1>
+  <p>Complete Exam Answer Guide — 15 Marks Each | All 5 Modules Covered</p>
+  <div class="badge-row">
+    <span class="badge b1">Module 1: Python</span>
+    <span class="badge b2">Module 2: ML Basics</span>
+    <span class="badge b3">Module 3: Data Preprocessing</span>
+    <span class="badge b4">Module 4: ML Algorithms</span>
+    <span class="badge b5">Module 5: Advanced ML</span>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#module1">📦 Module 1</a></li>
+    <li><a href="#module2">🤖 Module 2</a></li>
+    <li><a href="#module3">🔧 Module 3</a></li>
+    <li><a href="#module4">📊 Module 4</a></li>
+    <li><a href="#module5">🔬 Module 5</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- ===================== MODULE 1 ===================== -->
+<section class="module-section" id="module1">
+  <div class="module-header m1-header">
+    <div class="module-num">01</div>
+    <div>
+      <h2>Module 1 — Python Programming</h2>
+      <p style="color:#8b949e;margin-top:4px;">Variables, Data Types, Operators, Control Flow, Functions, Packages</p>
+    </div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="q-card" id="m1q1">
+    <div class="q-header">
+      <span class="q-num">Q1</span>
+      <h3>Give Python Features</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Introduction</h4>
+      <p>Python is a high-level, interpreted, general-purpose programming language created by <strong>Guido van Rossum</strong> in 1991. It emphasizes code readability and simplicity with its clean, elegant syntax. Python is versatile — used in web development, data science, AI, automation, and scientific computing.</p>
+
+      <h4>Key Features of Python</h4>
+      <ol>
+        <li><strong>Simple and Easy to Learn:</strong> Python has a clean, English-like syntax that makes it easy to read and write. Beginners can start coding quickly without complex rules.
+          <pre><code>print("Hello, World!")  # Simple one-line output</code></pre>
+        </li>
+        <li><strong>Interpreted Language:</strong> Python executes code line by line at runtime using an interpreter. This means no separate compilation step is needed, making debugging easier.</li>
+        <li><strong>Dynamically Typed:</strong> Variable types are determined at runtime, not at declaration. You don't need to specify the data type explicitly.
+          <pre><code>x = 10       # integer
+x = "hello"  # now a string — no error!</code></pre>
+        </li>
+        <li><strong>Object-Oriented:</strong> Python supports OOP with classes, objects, inheritance, encapsulation, and polymorphism, enabling modular, reusable code design.</li>
+        <li><strong>Functional Programming:</strong> Python also supports functional features like <span class="inline-code">lambda</span>, <span class="inline-code">map()</span>, <span class="inline-code">filter()</span>, and <span class="inline-code">reduce()</span>.</li>
+        <li><strong>Extensive Standard Library:</strong> Python ships with a rich standard library covering file I/O, OS operations, networking, JSON, math, datetime, and much more.</li>
+        <li><strong>Third-Party Packages:</strong> PyPI (Python Package Index) hosts 400,000+ packages. Key libraries: NumPy, Pandas, Matplotlib, Scikit-learn, TensorFlow, Django.</li>
+        <li><strong>Cross-Platform / Portable:</strong> Python runs on Windows, Linux, macOS without modification. Write once, run anywhere.</li>
+        <li><strong>Open Source and Free:</strong> Python is free to use, distribute, and modify. Its source code is publicly available.</li>
+        <li><strong>High-Level Language:</strong> Python abstracts memory management, pointers, and hardware details from the programmer.</li>
+        <li><strong>Automatic Memory Management (Garbage Collection):</strong> Python manages memory automatically using reference counting and garbage collection.</li>
+        <li><strong>Embeddable and Extendable:</strong> Python can be embedded into C/C++ programs or extended with C/C++ modules for performance-critical code.</li>
+        <li><strong>GUI Support:</strong> Supports GUI development through Tkinter, PyQt5, Kivy, and other frameworks.</li>
+        <li><strong>Huge Community Support:</strong> Python has one of the largest developer communities, with extensive documentation, tutorials, and forums.</li>
+        <li><strong>Versatility:</strong> Used in web development (Django, Flask), data science, AI/ML, automation, cybersecurity, IoT, and cloud computing.</li>
+      </ol>
+
+      <h4>Summary Table</h4>
+      <table>
+        <tr><th>Feature</th><th>Description</th></tr>
+        <tr><td>Syntax</td><td>Simple, readable, English-like</td></tr>
+        <tr><td>Typing</td><td>Dynamic, strongly typed</td></tr>
+        <tr><td>Paradigm</td><td>OOP, Functional, Procedural</td></tr>
+        <tr><td>Execution</td><td>Interpreted</td></tr>
+        <tr><td>Memory</td><td>Automatic garbage collection</td></tr>
+        <tr><td>Platform</td><td>Cross-platform</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q-card" id="m1q2">
+    <div class="q-header">
+      <span class="q-num">Q2</span>
+      <h3>Mention different applications using Python</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Python Applications</h4>
+      <ol>
+        <li><strong>Web Development:</strong> Django, Flask, and FastAPI frameworks allow rapid web application development. Instagram, Pinterest, and Disqus are built using Django.</li>
+        <li><strong>Data Science and Analytics:</strong> Python's Pandas, NumPy, and SciPy libraries make it the go-to language for data manipulation, statistical analysis, and visualization.</li>
+        <li><strong>Machine Learning and AI:</strong> Scikit-learn, TensorFlow, PyTorch, and Keras enable building ML models, neural networks, and deep learning applications.</li>
+        <li><strong>Data Visualization:</strong> Matplotlib, Seaborn, Plotly, and Bokeh create rich charts, graphs, and interactive dashboards.</li>
+        <li><strong>Scientific Computing:</strong> SciPy and SymPy support advanced math, linear algebra, optimization, and symbolic computation used in research.</li>
+        <li><strong>Automation / Scripting:</strong> Python automates repetitive tasks — file management, web scraping (BeautifulSoup, Scrapy), email sending, and system administration.</li>
+        <li><strong>Cybersecurity:</strong> Tools like Scapy, Metasploit extensions, and custom scripts are written in Python for ethical hacking and penetration testing.</li>
+        <li><strong>Embedded Systems and IoT:</strong> MicroPython and CircuitPython run on microcontrollers (Raspberry Pi, ESP32) for IoT applications.</li>
+        <li><strong>Desktop GUI Applications:</strong> Tkinter, PyQt5, and wxPython build cross-platform desktop applications.</li>
+        <li><strong>Game Development:</strong> Pygame library is used to develop simple 2D games.</li>
+        <li><strong>Natural Language Processing:</strong> NLTK, SpaCy, and Transformers (HuggingFace) enable text analysis, sentiment analysis, and language translation.</li>
+        <li><strong>Computer Vision:</strong> OpenCV and Pillow enable image processing, object detection, and facial recognition applications.</li>
+        <li><strong>Finance and Algorithmic Trading:</strong> Used for stock analysis, algorithmic trading bots, and financial modeling using libraries like QuantLib.</li>
+        <li><strong>Cloud Computing:</strong> AWS, Google Cloud, and Azure SDKs for Python enable cloud infrastructure automation and management.</li>
+        <li><strong>Education:</strong> Python is the most taught programming language in universities worldwide due to its simplicity.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q-card" id="m1q3">
+    <div class="q-header">
+      <span class="q-num">Q3</span>
+      <h3>Explain Conditional Statements in Python</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Introduction</h4>
+      <p>Conditional statements allow a program to make decisions and execute different code blocks based on whether a condition is <strong>True</strong> or <strong>False</strong>. Python uses <span class="inline-code">if</span>, <span class="inline-code">elif</span>, and <span class="inline-code">else</span> keywords.</p>
+
+      <h4>1. Simple if Statement</h4>
+      <p>Executes a block only if the condition is True.</p>
+      <pre><code>age = 18
+if age >= 18:
+    print("You are eligible to vote")</code></pre>
+
+      <h4>2. if-else Statement</h4>
+      <p>Provides an alternative block when the condition is False.</p>
+      <pre><code>marks = 45
+if marks >= 50:
+    print("Pass")
+else:
+    print("Fail")</code></pre>
+
+      <h4>3. if-elif-else (Ladder)</h4>
+      <p>Tests multiple conditions sequentially.</p>
+      <pre><code>score = 75
+if score >= 90:
+    print("Grade A")
+elif score >= 75:
+    print("Grade B")
+elif score >= 60:
+    print("Grade C")
+elif score >= 50:
+    print("Grade D")
+else:
+    print("Grade F")</code></pre>
+
+      <h4>4. Nested if Statements</h4>
+      <pre><code>num = 15
+if num > 0:
+    if num % 2 == 0:
+        print("Positive Even")
+    else:
+        print("Positive Odd")
+else:
+    print("Non-positive number")</code></pre>
+
+      <h4>5. Ternary (One-line) if-else</h4>
+      <pre><code>x = 10
+result = "Even" if x % 2 == 0 else "Odd"
+print(result)  # Even</code></pre>
+
+      <h4>6. Logical Operators in Conditions</h4>
+      <pre><code>x = 25
+if x > 10 and x < 50:
+    print("x is between 10 and 50")
+
+y = -5
+if y < 0 or y > 100:
+    print("y is out of normal range")
+
+if not (x == 0):
+    print("x is non-zero")</code></pre>
+
+      <h4>Important Points</h4>
+      <ul>
+        <li>Python uses <strong>indentation</strong> (4 spaces) instead of braces <span class="inline-code">{}</span> to define code blocks.</li>
+        <li>The condition must evaluate to a Boolean (<span class="inline-code">True</span> or <span class="inline-code">False</span>).</li>
+        <li>Falsy values: <span class="inline-code">0, None, [], {}, ""</span> are all considered <span class="inline-code">False</span>.</li>
+        <li>Only the first matching <span class="inline-code">elif</span> block executes; rest are skipped.</li>
+      </ul>
+
+      <h4>Flowchart of if-elif-else</h4>
+      <div class="diagram">   [Condition 1]
+        /      \
+     True     False
+      |          |
+  [Block 1]  [Condition 2]
+               /      \
+            True     False
+             |          |
+         [Block 2]  [else Block]</div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q-card" id="m1q4">
+    <div class="q-header">
+      <span class="q-num">Q4</span>
+      <h3>Briefly explain different operators available in Python</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Introduction</h4>
+      <p>Operators are special symbols that perform operations on values (operands). Python provides 7 categories of operators.</p>
+
+      <h4>1. Arithmetic Operators</h4>
+      <table>
+        <tr><th>Operator</th><th>Name</th><th>Example</th><th>Result</th></tr>
+        <tr><td>+</td><td>Addition</td><td>10 + 3</td><td>13</td></tr>
+        <tr><td>-</td><td>Subtraction</td><td>10 - 3</td><td>7</td></tr>
+        <tr><td>*</td><td>Multiplication</td><td>10 * 3</td><td>30</td></tr>
+        <tr><td>/</td><td>Division</td><td>10 / 3</td><td>3.333</td></tr>
+        <tr><td>//</td><td>Floor Division</td><td>10 // 3</td><td>3</td></tr>
+        <tr><td>%</td><td>Modulus</td><td>10 % 3</td><td>1</td></tr>
+        <tr><td>**</td><td>Exponentiation</td><td>2 ** 3</td><td>8</td></tr>
+      </table>
+
+      <h4>2. Comparison (Relational) Operators</h4>
+      <table>
+        <tr><th>Operator</th><th>Meaning</th><th>Example</th></tr>
+        <tr><td>==</td><td>Equal to</td><td>5 == 5 → True</td></tr>
+        <tr><td>!=</td><td>Not equal</td><td>5 != 3 → True</td></tr>
+        <tr><td>&gt;</td><td>Greater than</td><td>7 > 3 → True</td></tr>
+        <tr><td>&lt;</td><td>Less than</td><td>3 < 7 → True</td></tr>
+        <tr><td>&gt;=</td><td>Greater or equal</td><td>5 >= 5 → True</td></tr>
+        <tr><td>&lt;=</td><td>Less or equal</td><td>4 <= 5 → True</td></tr>
+      </table>
+
+      <h4>3. Assignment Operators</h4>
+      <pre><code>x = 10      # simple assignment
+x += 5      # x = x + 5  → 15
+x -= 3      # x = x - 3  → 12
+x *= 2      # x = x * 2  → 24
+x /= 4      # x = x / 4  → 6.0
+x //= 2     # x = x // 2 → 3.0
+x **= 3     # x = x ** 3 → 27.0
+x %= 5      # x = x % 5  → 2.0</code></pre>
+
+      <h4>4. Logical Operators</h4>
+      <table>
+        <tr><th>Operator</th><th>Description</th><th>Example</th></tr>
+        <tr><td>and</td><td>True if both are True</td><td>True and False → False</td></tr>
+        <tr><td>or</td><td>True if at least one is True</td><td>True or False → True</td></tr>
+        <tr><td>not</td><td>Reverses the Boolean</td><td>not True → False</td></tr>
+      </table>
+
+      <h4>5. Bitwise Operators</h4>
+      <pre><code>a, b = 12, 10  # Binary: 1100, 1010
+print(a & b)   # AND  = 1000 = 8
+print(a | b)   # OR   = 1110 = 14
+print(a ^ b)   # XOR  = 0110 = 6
+print(~a)      # NOT  = -13
+print(a << 2)  # Left shift  = 48
+print(a >> 2)  # Right shift = 3</code></pre>
+
+      <h4>6. Membership Operators</h4>
+      <pre><code>lst = [1, 2, 3, 4, 5]
+print(3 in lst)     # True
+print(6 not in lst) # True</code></pre>
+
+      <h4>7. Identity Operators</h4>
+      <pre><code>a = [1, 2, 3]
+b = a
+c = [1, 2, 3]
+print(a is b)   # True  (same object)
+print(a is c)   # False (different objects, same content)
+print(a is not c) # True</code></pre>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q-card" id="m1q5">
+    <div class="q-header">
+      <span class="q-num">Q5</span>
+      <h3>Discuss Looping statements in Python with examples</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Introduction</h4>
+      <p>Loops allow executing a block of code repeatedly until a condition is met. Python has two primary loop types: <strong>for</strong> and <strong>while</strong>.</p>
+
+      <h4>1. for Loop</h4>
+      <p>Iterates over a sequence (list, tuple, string, range, dictionary).</p>
+      <pre><code># Iterate over a list
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+
+# Using range()
+for i in range(1, 6):
+    print(i, end=" ")  # 1 2 3 4 5
+
+# With step
+for i in range(0, 20, 5):
+    print(i, end=" ")  # 0 5 10 15
+
+# Iterate over string
+for ch in "Python":
+    print(ch)</code></pre>
+
+      <h4>2. while Loop</h4>
+      <p>Repeats as long as the condition is True.</p>
+      <pre><code>count = 1
+while count <= 5:
+    print("Count:", count)
+    count += 1
+
+# Infinite loop with break
+while True:
+    val = int(input("Enter 0 to exit: "))
+    if val == 0:
+        break</code></pre>
+
+      <h4>3. Loop Control Statements</h4>
+      <p><strong>break</strong> — exits the loop immediately:</p>
+      <pre><code>for i in range(1, 10):
+    if i == 5:
+        break
+    print(i, end=" ")  # 1 2 3 4</code></pre>
+
+      <p><strong>continue</strong> — skips the current iteration:</p>
+      <pre><code>for i in range(1, 8):
+    if i % 2 == 0:
+        continue
+    print(i, end=" ")  # 1 3 5 7</code></pre>
+
+      <p><strong>pass</strong> — does nothing; a placeholder:</p>
+      <pre><code>for i in range(5):
+    if i == 3:
+        pass  # placeholder; no action
+    print(i)</code></pre>
+
+      <h4>4. else clause with loops</h4>
+      <p>The <span class="inline-code">else</span> block executes when the loop completes normally (without a <span class="inline-code">break</span>):</p>
+      <pre><code>for i in range(1, 6):
+    print(i)
+else:
+    print("Loop completed!")</code></pre>
+
+      <h4>5. Nested Loops</h4>
+      <pre><code>for i in range(1, 4):
+    for j in range(1, 4):
+        print(i * j, end="\t")
+    print()
+# Multiplication table 3x3</code></pre>
+
+      <h4>6. List Comprehension (compact loop)</h4>
+      <pre><code>squares = [x**2 for x in range(1, 6)]
+print(squares)  # [1, 4, 9, 16, 25]
+
+evens = [x for x in range(20) if x % 2 == 0]
+print(evens)    # [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]</code></pre>
+
+      <h4>Comparison: for vs while</h4>
+      <table>
+        <tr><th>Feature</th><th>for loop</th><th>while loop</th></tr>
+        <tr><td>Use case</td><td>Known number of iterations</td><td>Unknown, condition-based</td></tr>
+        <tr><td>Iteration over</td><td>Sequence/iterable</td><td>Condition expression</td></tr>
+        <tr><td>Risk</td><td>None</td><td>Infinite loop if condition never False</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="q-card" id="m1q6">
+    <div class="q-header">
+      <span class="q-num">Q6</span>
+      <h3>Compare List and Tuple</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Introduction</h4>
+      <p>Both <strong>List</strong> and <strong>Tuple</strong> are sequence data types in Python that can store multiple items. The key difference is <strong>mutability</strong>.</p>
+
+      <h4>List</h4>
+      <p>A list is a mutable, ordered collection enclosed in square brackets <span class="inline-code">[]</span>.</p>
+      <pre><code>my_list = [10, 20, 30, "Python", 3.14]
+my_list[2] = 99        # Modifiable
+my_list.append(100)    # Add element
+my_list.remove(10)     # Remove element
+print(my_list)         # [20, 99, 'Python', 3.14, 100]</code></pre>
+
+      <h4>Tuple</h4>
+      <p>A tuple is an immutable, ordered collection enclosed in parentheses <span class="inline-code">()</span>.</p>
+      <pre><code>my_tuple = (10, 20, 30, "Python", 3.14)
+# my_tuple[0] = 99   # TypeError: 'tuple' is immutable
+print(my_tuple[1])    # 20
+print(len(my_tuple))  # 5</code></pre>
+
+      <h4>Detailed Comparison Table</h4>
+      <table>
+        <tr><th>Feature</th><th>List</th><th>Tuple</th></tr>
+        <tr><td>Syntax</td><td><span class="inline-code">[ ]</span></td><td><span class="inline-code">( )</span></td></tr>
+        <tr><td>Mutability</td><td>Mutable (can change)</td><td>Immutable (cannot change)</td></tr>
+        <tr><td>Performance</td><td>Slower (due to mutability)</td><td>Faster (optimized)</td></tr>
+        <tr><td>Memory</td><td>More memory</td><td>Less memory</td></tr>
+        <tr><td>Methods</td><td>append, remove, insert, pop, sort, reverse, etc.</td><td>Only count(), index()</td></tr>
+        <tr><td>Use as dict key</td><td>Cannot (unhashable)</td><td>Can (hashable)</td></tr>
+        <tr><td>Use case</td><td>Dynamic data that changes</td><td>Fixed, constant data</td></tr>
+        <tr><td>Nesting</td><td>Supports nested lists</td><td>Supports nested tuples</td></tr>
+        <tr><td>Iteration</td><td>Slower</td><td>Faster</td></tr>
+      </table>
+
+      <h4>Common Operations</h4>
+      <pre><code># Common operations (both List and Tuple)
+data = [5, 1, 3, 2, 4]   # list
+t    = (5, 1, 3, 2, 4)   # tuple
+
+# Slicing
+print(data[1:4])          # [1, 3, 2]
+print(t[1:4])             # (1, 3, 2)
+
+# Concatenation
+a = [1, 2] + [3, 4]     # [1, 2, 3, 4]
+b = (1, 2) + (3, 4)     # (1, 2, 3, 4)
+
+# Repetition
+print([0] * 3)            # [0, 0, 0]
+print((0,) * 3)           # (0, 0, 0)
+
+# Length
+print(len(data))          # 5
+
+# Membership
+print(3 in data)          # True</code></pre>
+
+      <h4>Tuple as Dictionary Key</h4>
+      <pre><code>coords = {}
+coords[(10, 20)] = "Point A"   # Valid: tuple as key
+coords[(30, 40)] = "Point B"
+print(coords)  # {(10, 20): 'Point A', (30, 40): 'Point B'}
+
+# Cannot use list as key
+# coords[[10, 20]] = "Point"  # TypeError</code></pre>
+
+      <h4>When to Use Which?</h4>
+      <ul>
+        <li>Use <strong>List</strong> when data needs to be modified (add/remove items).</li>
+        <li>Use <strong>Tuple</strong> for fixed data (constants, coordinates, RGB values).</li>
+        <li>Use <strong>Tuple</strong> as dictionary keys.</li>
+        <li>Use <strong>Tuple</strong> when performance matters (it's faster and memory-efficient).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="q-card" id="m1q7">
+    <div class="q-header">
+      <span class="q-num">Q7</span>
+      <h3>Explain Maps and filters for data analysis in Python</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Introduction</h4>
+      <p><strong>map()</strong> and <strong>filter()</strong> are built-in Python functions from functional programming. They operate on iterables and return iterator objects, making data processing concise and efficient. Combined with <strong>lambda</strong> functions, they form a powerful data analysis toolkit.</p>
+
+      <h4>1. map() Function</h4>
+      <p><strong>Syntax:</strong> <span class="inline-code">map(function, iterable)</span></p>
+      <p>Applies a function to every element of an iterable and returns a map object (iterator).</p>
+      <pre><code># Example 1: Square each number
+nums = [1, 2, 3, 4, 5]
+squares = list(map(lambda x: x**2, nums))
+print(squares)  # [1, 4, 9, 16, 25]
+
+# Example 2: Convert Celsius to Fahrenheit
+celsius = [0, 20, 37, 100]
+fahrenheit = list(map(lambda c: (c * 9/5) + 32, celsius))
+print(fahrenheit)  # [32.0, 68.0, 98.6, 212.0]
+
+# Example 3: Apply a named function
+def double(x):
+    return x * 2
+
+nums = [3, 6, 9, 12]
+result = list(map(double, nums))
+print(result)   # [6, 12, 18, 24]
+
+# Example 4: map with multiple iterables
+a = [1, 2, 3]
+b = [10, 20, 30]
+sums = list(map(lambda x, y: x + y, a, b))
+print(sums)     # [11, 22, 33]
+
+# Example 5: Convert strings to uppercase
+names = ["alice", "bob", "charlie"]
+upper_names = list(map(str.upper, names))
+print(upper_names)  # ['ALICE', 'BOB', 'CHARLIE']</code></pre>
+
+      <h4>2. filter() Function</h4>
+      <p><strong>Syntax:</strong> <span class="inline-code">filter(function, iterable)</span></p>
+      <p>Filters elements from an iterable, keeping only those for which the function returns True.</p>
+      <pre><code># Example 1: Filter even numbers
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+evens = list(filter(lambda x: x % 2 == 0, nums))
+print(evens)    # [2, 4, 6, 8, 10]
+
+# Example 2: Filter positive numbers
+data = [-5, -2, 0, 3, 7, -1, 9]
+positives = list(filter(lambda x: x > 0, data))
+print(positives)  # [3, 7, 9]
+
+# Example 3: Filter strings longer than 4 characters
+words = ["cat", "elephant", "bee", "python", "ant"]
+long_words = list(filter(lambda w: len(w) > 4, words))
+print(long_words)  # ['elephant', 'python']
+
+# Example 4: Filter students who passed
+students = [("Alice", 72), ("Bob", 45), ("Carol", 85), ("Dave", 39)]
+passed = list(filter(lambda s: s[1] >= 50, students))
+print(passed)   # [('Alice', 72), ('Carol', 85)]</code></pre>
+
+      <h4>3. reduce() from functools</h4>
+      <pre><code>from functools import reduce
+
+# Sum all elements
+nums = [1, 2, 3, 4, 5]
+total = reduce(lambda x, y: x + y, nums)
+print(total)   # 15
+
+# Find maximum
+maximum = reduce(lambda x, y: x if x > y else y, nums)
+print(maximum) # 5</code></pre>
+
+      <h4>4. Combining map() and filter()</h4>
+      <pre><code># Square all even numbers from the list
+nums = range(1, 11)
+result = list(map(lambda x: x**2, filter(lambda x: x % 2 == 0, nums)))
+print(result)  # [4, 16, 36, 64, 100]</code></pre>
+
+      <h4>5. Using map() with Pandas for Data Analysis</h4>
+      <pre><code>import pandas as pd
+
+df = pd.DataFrame({'salary': [30000, 45000, 60000, 25000]})
+df['tax'] = df['salary'].map(lambda x: x * 0.1)
+df['category'] = df['salary'].map(
+    lambda x: 'High' if x > 50000 else ('Mid' if x > 35000 else 'Low')
+)
+print(df)</code></pre>
+
+      <h4>Comparison: map() vs filter()</h4>
+      <table>
+        <tr><th>Feature</th><th>map()</th><th>filter()</th></tr>
+        <tr><td>Purpose</td><td>Transform every element</td><td>Select elements meeting condition</td></tr>
+        <tr><td>Output size</td><td>Same as input</td><td>≤ input size</td></tr>
+        <tr><td>Function return</td><td>Any value</td><td>Boolean (True/False)</td></tr>
+        <tr><td>Use case</td><td>Data transformation</td><td>Data filtering</td></tr>
+      </table>
+
+      <h4>Advantages for Data Analysis</h4>
+      <ul>
+        <li>Concise — replaces verbose for loops</li>
+        <li>Memory efficient — returns lazy iterators</li>
+        <li>Functional style — easy to chain operations</li>
+        <li>Works seamlessly with Pandas, NumPy iterables</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="q-card" id="m1q8">
+    <div class="q-header">
+      <span class="q-num">Q8</span>
+      <h3>Slicing operation in various data structures</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Introduction</h4>
+      <p>Slicing extracts a portion of a sequence (list, tuple, string, NumPy array) using the syntax <span class="inline-code">[start:stop:step]</span>.</p>
+      <ul>
+        <li><strong>start</strong>: Index to begin (inclusive, default=0)</li>
+        <li><strong>stop</strong>: Index to end (exclusive)</li>
+        <li><strong>step</strong>: Increment (default=1)</li>
+      </ul>
+
+      <h4>1. String Slicing</h4>
+      <pre><code>s = "PYTHON"
+#    P  Y  T  H  O  N
+#    0  1  2  3  4  5  (positive)
+#   -6 -5 -4 -3 -2 -1  (negative)
+
+print(s[0:3])    # PYT
+print(s[2:])     # THON
+print(s[:4])     # PYTH
+print(s[-3:])    # HON
+print(s[::2])    # PTO
+print(s[::-1])   # NOHTYP (reversed)</code></pre>
+
+      <h4>2. List Slicing</h4>
+      <pre><code>lst = [10, 20, 30, 40, 50, 60, 70]
+
+print(lst[1:4])    # [20, 30, 40]
+print(lst[:3])     # [10, 20, 30]
+print(lst[3:])     # [40, 50, 60, 70]
+print(lst[-3:])    # [50, 60, 70]
+print(lst[::2])    # [10, 30, 50, 70]
+print(lst[::-1])   # [70, 60, 50, 40, 30, 20, 10]
+
+# Modify via slicing
+lst[1:3] = [99, 88]
+print(lst)         # [10, 99, 88, 40, 50, 60, 70]</code></pre>
+
+      <h4>3. Tuple Slicing</h4>
+      <pre><code>tup = (1, 2, 3, 4, 5, 6, 7, 8)
+
+print(tup[2:5])    # (3, 4, 5)
+print(tup[::-1])   # (8, 7, 6, 5, 4, 3, 2, 1)
+print(tup[1::2])   # (2, 4, 6, 8)</code></pre>
+
+      <h4>4. NumPy Array Slicing (2D)</h4>
+      <pre><code>import numpy as np
+
+arr = np.array([[1,2,3],[4,5,6],[7,8,9]])
+
+print(arr[0:2, 1:3])  # Rows 0-1, Cols 1-2
+# [[2 3]
+#  [5 6]]
+
+print(arr[:, 1])      # All rows, column 1
+# [2 5 8]
+
+print(arr[1, :])      # Row 1, all columns
+# [4 5 6]</code></pre>
+
+      <h4>5. Pandas DataFrame Slicing</h4>
+      <pre><code>import pandas as pd
+df = pd.DataFrame({'A':[1,2,3,4],'B':[5,6,7,8],'C':[9,10,11,12]})
+
+# Row slicing
+print(df[1:3])         # Rows at index 1, 2
+
+# loc (label-based)
+print(df.loc[0:2, 'A':'B'])
+
+# iloc (position-based)
+print(df.iloc[1:3, 0:2])</code></pre>
+
+      <h4>Slicing Summary Table</h4>
+      <table>
+        <tr><th>Slice</th><th>Meaning</th></tr>
+        <tr><td>[:]</td><td>All elements</td></tr>
+        <tr><td>[a:b]</td><td>Elements from index a to b-1</td></tr>
+        <tr><td>[a:]</td><td>From index a to end</td></tr>
+        <tr><td>[:b]</td><td>From start to b-1</td></tr>
+        <tr><td>[::n]</td><td>Every nth element</td></tr>
+        <tr><td>[::-1]</td><td>Reverse the sequence</td></tr>
+        <tr><td>[-n:]</td><td>Last n elements</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="q-card" id="m1q9">
+    <div class="q-header">
+      <span class="q-num">Q9</span>
+      <h3>Explain (a) Sklearn package (b) Matplotlib package (c) NumPy (d) Pandas</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>(a) Scikit-learn (sklearn)</h4>
+      <p>Scikit-learn is a free, open-source ML library built on NumPy, SciPy, and Matplotlib. It provides simple and efficient tools for data mining and machine learning.</p>
+      <p><strong>Key modules:</strong> Classification, Regression, Clustering, Dimensionality Reduction, Model Selection, Preprocessing.</p>
+      <pre><code>from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+X = [[1],[2],[3],[4],[5]]
+y = [2, 4, 6, 8, 10]
+model = LinearRegression()
+model.fit(X, y)
+print(model.predict([[6]]))  # [12.]</code></pre>
+
+      <h4>(b) Matplotlib</h4>
+      <p>Matplotlib is Python's primary plotting library. It creates static, interactive, and animated visualizations — line plots, bar charts, histograms, scatter plots, pie charts, and 3D plots.</p>
+      <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+plt.plot(x, np.sin(x), label='sin(x)', color='blue')
+plt.plot(x, np.cos(x), label='cos(x)', color='red')
+plt.title("Trigonometric Functions")
+plt.xlabel("x"); plt.ylabel("y")
+plt.legend(); plt.grid(True)
+plt.show()</code></pre>
+      <p><strong>Plot types:</strong> plt.plot(), plt.bar(), plt.hist(), plt.scatter(), plt.pie(), plt.boxplot()</p>
+
+      <h4>(c) NumPy</h4>
+      <p>NumPy (Numerical Python) provides N-dimensional array objects (ndarray) and mathematical functions for fast numerical operations. It is the foundation of scientific computing in Python.</p>
+      <pre><code>import numpy as np
+
+# Arrays
+arr = np.array([1, 2, 3, 4, 5])
+mat = np.array([[1,2],[3,4],[5,6]])
+
+# Operations (vectorized, no loops needed)
+print(arr * 2)          # [2 4 6 8 10]
+print(np.sqrt(arr))     # [1. 1.41 1.73 2. 2.23]
+print(np.mean(arr))     # 3.0
+print(mat.shape)        # (3, 2)
+print(mat.T)            # Transpose
+
+# Broadcasting
+a = np.array([[1,2,3],[4,5,6]])
+b = np.array([10,20,30])
+print(a + b)  # Adds b to each row of a</code></pre>
+      <p><strong>Key functions:</strong> zeros(), ones(), linspace(), reshape(), dot(), linalg.inv(), random.rand()</p>
+
+      <h4>(d) Pandas</h4>
+      <p>Pandas provides high-performance, easy-to-use data structures (Series, DataFrame) for data manipulation and analysis. It is the standard tool for data analysis in Python.</p>
+      <pre><code>import pandas as pd
+
+# Series
+s = pd.Series([10, 20, 30, 40], index=['a','b','c','d'])
+
+# DataFrame
+data = {'Name':['Alice','Bob','Carol'],
+        'Age':[25,30,28],
+        'Score':[85.0,72.5,91.0]}
+df = pd.DataFrame(data)
+
+# Operations
+print(df.head())                 # First 5 rows
+print(df.describe())             # Statistics
+print(df[df['Score'] > 80])     # Filter rows
+df['Grade'] = df['Score'].apply(lambda x: 'A' if x>85 else 'B')
+
+# Reading files
+# df = pd.read_csv('data.csv')
+# df.to_excel('output.xlsx')</code></pre>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="q-card" id="m1q10">
+    <div class="q-header">
+      <span class="q-num">Q10</span>
+      <h3>Discuss various String operations</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Introduction</h4>
+      <p>Strings in Python are immutable sequences of characters. Python provides a rich set of built-in string methods for manipulation, searching, formatting, and analysis.</p>
+
+      <h4>1. Basic String Operations</h4>
+      <pre><code>s = "Hello, Python World!"
+
+# Length
+print(len(s))          # 20
+
+# Concatenation
+s1 = "Hello " + "World"
+
+# Repetition
+print("Ha" * 3)         # HaHaHa
+
+# Membership
+print("Python" in s)    # True</code></pre>
+
+      <h4>2. Case Conversion Methods</h4>
+      <pre><code>s = "hello python"
+print(s.upper())        # HELLO PYTHON
+print(s.lower())        # hello python
+print(s.capitalize())   # Hello python
+print(s.title())        # Hello Python
+print(s.swapcase())     # HELLO PYTHON</code></pre>
+
+      <h4>3. Search and Find Methods</h4>
+      <pre><code>s = "Python is great, Python is fun"
+print(s.find("Python"))     # 0 (first occurrence)
+print(s.rfind("Python"))    # 17 (last occurrence)
+print(s.index("great"))     # 10
+print(s.count("Python"))    # 2
+print(s.startswith("Py"))   # True
+print(s.endswith("fun"))    # True</code></pre>
+
+      <h4>4. Strip / Remove Whitespace</h4>
+      <pre><code>s = "   Hello World   "
+print(s.strip())    # "Hello World"
+print(s.lstrip())   # "Hello World   "
+print(s.rstrip())   # "   Hello World"</code></pre>
+
+      <h4>5. Split and Join</h4>
+      <pre><code>s = "apple,banana,cherry"
+words = s.split(",")
+print(words)  # ['apple', 'banana', 'cherry']
+
+joined = " - ".join(words)
+print(joined) # apple - banana - cherry
+
+# splitlines
+text = "Line1\nLine2\nLine3"
+print(text.splitlines())  # ['Line1', 'Line2', 'Line3']</code></pre>
+
+      <h4>6. Replace Method</h4>
+      <pre><code>s = "I love Java. Java is great."
+print(s.replace("Java", "Python"))
+# I love Python. Python is great.
+
+print(s.replace("Java", "Python", 1))
+# I love Python. Java is great.  (only first)</code></pre>
+
+      <h4>7. Formatting</h4>
+      <pre><code># format()
+name, age = "Alice", 25
+print("Name: {}, Age: {}".format(name, age))
+
+# f-strings (Python 3.6+)
+print(f"Name: {name}, Age: {age}")
+print(f"Square of 5: {5**2}")
+
+# % formatting
+print("Name: %s, Age: %d" % (name, age))</code></pre>
+
+      <h4>8. Encoding / Alignment</h4>
+      <pre><code>s = "Python"
+print(s.center(20, "*"))    # *******Python*******
+print(s.ljust(20, "-"))     # Python--------------
+print(s.rjust(20, "-"))     # --------------Python
+print(s.zfill(10))          # 0000Python</code></pre>
+
+      <h4>9. isX() Checking Methods</h4>
+      <pre><code>print("hello".isalpha())    # True
+print("12345".isdigit())    # True
+print("hello123".isalnum()) # True
+print("  ".isspace())       # True
+print("Hello".istitle())    # True</code></pre>
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="q-card" id="m1q11">
+    <div class="q-header">
+      <span class="q-num">Q11</span>
+      <h3>Explain how slicing works in Python strings with positive/negative indices and step values</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>String Slicing Syntax</h4>
+      <p><span class="inline-code">string[start : stop : step]</span></p>
+      <ul>
+        <li><strong>start</strong> — starting index (inclusive). Default: 0 for forward, -1 for backward.</li>
+        <li><strong>stop</strong> — ending index (exclusive).</li>
+        <li><strong>step</strong> — how many positions to jump. Default: 1.</li>
+      </ul>
+
+      <h4>Index Mapping</h4>
+      <div class="diagram">String:  P  Y  T  H  O  N  I  C  S
+Pos idx: 0  1  2  3  4  5  6  7  8
+Neg idx:-9 -8 -7 -6 -5 -4 -3 -2 -1</div>
+
+      <h4>Positive Index Examples</h4>
+      <pre><code>s = "PYTHONICS"
+
+print(s[0:6])    # PYTHON   (index 0 to 5)
+print(s[2:7])    # THONI    (index 2 to 6)
+print(s[0:9])    # PYTHONICS (full string)
+print(s[3:])     # HONICS   (from index 3 to end)
+print(s[:5])     # PYTHO    (from start to index 4)</code></pre>
+
+      <h4>Negative Index Examples</h4>
+      <pre><code>s = "PYTHONICS"
+
+print(s[-6:-1])  # ONIC    wait: ONIC → HONICS[-6:-1]='ONIC'
+print(s[-3:])    # ICS     (last 3 characters)
+print(s[:-3])    # PYTHON  (all except last 3)
+print(s[-9:-4])  # PYTHO
+print(s[-1])     # S       (last character)</code></pre>
+
+      <h4>Step Values</h4>
+      <pre><code>s = "PYTHONICS"
+
+print(s[::1])    # PYTHONICS  (every 1 character = default)
+print(s[::2])    # PTOI       (every 2nd character)
+print(s[::3])    # POC        (every 3rd)
+print(s[1::2])   # YHN S      (start at 1, every 2nd)
+
+# Negative step (reverse)
+print(s[::-1])   # SCINOHTYYP (reversed)
+print(s[::-2])   # SINT       (reversed, every 2nd)
+print(s[8:2:-1]) # SCINOHT   (from index 8 down to index 3)</code></pre>
+
+      <h4>Combining All Three Parameters</h4>
+      <pre><code>s = "Hello World Python"
+
+# First 10 chars, every 2nd
+print(s[0:10:2])    # Hlo o
+
+# Reverse only a portion
+print(s[10:3:-1])   # dlroW ll
+
+# Last 6, reversed
+print(s[-1:-7:-1])  # nohtyP... wait
+print(s[-6:])       # Python
+
+# Full reverse
+print(s[::-1])      # nohtyP dlroW olleH</code></pre>
+
+      <h4>Out-of-Range Slicing</h4>
+      <pre><code>s = "Python"
+print(s[0:100])  # Python  (no error; stops at end)
+print(s[-100:])  # Python  (no error; starts from beginning)</code></pre>
+
+      <h4>Summary Table</h4>
+      <table>
+        <tr><th>Slice</th><th>Result (for "PYTHONICS")</th><th>Explanation</th></tr>
+        <tr><td>[0:3]</td><td>PYT</td><td>Chars at 0,1,2</td></tr>
+        <tr><td>[-3:]</td><td>ICS</td><td>Last 3 chars</td></tr>
+        <tr><td>[::2]</td><td>PTOI</td><td>Every 2nd char</td></tr>
+        <tr><td>[::-1]</td><td>SCINOHTYYP</td><td>Full reverse</td></tr>
+        <tr><td>[2:-2]</td><td>THONIC</td><td>Skip first 2 and last 2</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="q-card" id="m1q12">
+    <div class="q-header">
+      <span class="q-num">Q12</span>
+      <h3>Python program to print all even numbers between 1 and 50 using for loop with range() and continue</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Program using range() with step 2</h4>
+      <pre><code># Method 1: Direct range with step=2
+print("Even numbers between 1 and 50:")
+for num in range(2, 51, 2):
+    print(num, end=" ")
+print()</code></pre>
+      <div class="output-box">2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50</div>
+
+      <h4>Program using continue statement</h4>
+      <pre><code># Method 2: Using continue to skip odd numbers
+print("\nEven numbers using continue:")
+for num in range(1, 51):
+    if num % 2 != 0:   # If odd, skip to next iteration
+        continue
+    print(num, end=" ")
+print()</code></pre>
+
+      <h4>Role of range() Function</h4>
+      <p>The <span class="inline-code">range(start, stop, step)</span> function generates a sequence of integers:</p>
+      <ul>
+        <li><span class="inline-code">range(2, 51, 2)</span> → generates 2, 4, 6, ..., 50</li>
+        <li><span class="inline-code">range(1, 51)</span> → generates 1, 2, 3, ..., 50</li>
+        <li><span class="inline-code">range(10)</span> → generates 0, 1, ..., 9</li>
+      </ul>
+      <pre><code>print(list(range(0, 20, 4)))  # [0, 4, 8, 12, 16]
+print(list(range(10, 0, -1))) # [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]</code></pre>
+
+      <h4>Role of continue Statement</h4>
+      <p>The <span class="inline-code">continue</span> statement skips the rest of the current loop iteration and jumps to the next. It does NOT exit the loop — it just skips to the next cycle.</p>
+      <pre><code># continue example — skip multiples of 3
+for i in range(1, 15):
+    if i % 3 == 0:
+        continue   # Skip 3, 6, 9, 12
+    print(i, end=" ")
+# Output: 1 2 4 5 7 8 10 11 13 14</code></pre>
+
+      <h4>Combined Program with Explanation</h4>
+      <pre><code># Complete program: Even numbers 1-50 with continue
+total = 0
+count = 0
+
+print("Even Numbers from 1 to 50:")
+print("-" * 30)
+for num in range(1, 51):
+    if num % 2 != 0:      # Odd number
+        continue           # Skip odd, go to next iteration
+    total += num           # Add to total
+    count += 1
+    print(f"{num:3}", end=" ")
+    if count % 10 == 0:   # New line every 10 numbers
+        print()
+
+print(f"\n{'='*30}")
+print(f"Total even numbers: {count}")
+print(f"Sum of even numbers: {total}")</code></pre>
+      <div class="output-box">2   4   6   8  10  12  14  16  18  20 
+22  24  26  28  30  32  34  36  38  40 
+42  44  46  48  50
+
+Total even numbers: 25
+Sum of even numbers: 650</div>
+    </div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="q-card" id="m1q13">
+    <div class="q-header">
+      <span class="q-num">Q13</span>
+      <h3>Python program performing operations on a list: create, add, remove, sort, slice</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <pre><code># a) Create list with elements 50, 120, 70, 100, 20
+my_list = [50, 120, 70, 100, 20]
+print("a) Original list:", my_list)
+# Output: [50, 120, 70, 100, 20]
+
+# b) Add element 15 to the end
+my_list.append(15)
+print("b) After append(15):", my_list)
+# Output: [50, 120, 70, 100, 20, 15]
+
+# c) Remove element 70
+my_list.remove(70)
+print("c) After remove(70):", my_list)
+# Output: [50, 120, 100, 20, 15]
+
+# d) Sort in ascending order
+my_list.sort()
+print("d) After sort():", my_list)
+# Output: [15, 20, 50, 100, 120]
+
+# e) Slice first three elements
+sub_list = my_list[:3]
+print("e) sub_list (first 3):", sub_list)
+# Output: [15, 20, 50]
+
+print("\n--- Final Summary ---")
+print("my_list:", my_list)
+print("sub_list:", sub_list)</code></pre>
+      <div class="output-box">a) Original list: [50, 120, 70, 100, 20]
+b) After append(15): [50, 120, 70, 100, 20, 15]
+c) After remove(70): [50, 120, 100, 20, 15]
+d) After sort(): [15, 20, 50, 100, 120]
+e) sub_list (first 3): [15, 20, 50]</div>
+
+      <h4>Explanation of Each Operation</h4>
+      <table>
+        <tr><th>Method</th><th>Description</th></tr>
+        <tr><td>append(x)</td><td>Adds x to the end of the list</td></tr>
+        <tr><td>remove(x)</td><td>Removes first occurrence of x; raises ValueError if not found</td></tr>
+        <tr><td>sort()</td><td>Sorts list in-place in ascending order; use reverse=True for descending</td></tr>
+        <tr><td>[:3]</td><td>Returns elements at indices 0, 1, 2 (first 3)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="q-card" id="m1q14">
+    <div class="q-header">
+      <span class="q-num">Q14</span>
+      <h3>Give a short description on Python data types</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Python Data Types Overview</h4>
+      <p>Python has the following built-in data types, grouped by category:</p>
+
+      <h4>1. Numeric Types</h4>
+      <table>
+        <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+        <tr><td>int</td><td>Integer numbers (unlimited precision)</td><td>x = 42, y = -7</td></tr>
+        <tr><td>float</td><td>Floating-point (decimal) numbers</td><td>pi = 3.14, e = 2.718</td></tr>
+        <tr><td>complex</td><td>Complex numbers (a + bj)</td><td>z = 3 + 4j</td></tr>
+      </table>
+      <pre><code>x = 100; y = 3.14; z = 2+3j
+print(type(x), type(y), type(z))
+# &lt;class 'int'&gt; &lt;class 'float'&gt; &lt;class 'complex'&gt;</code></pre>
+
+      <h4>2. Boolean Type</h4>
+      <pre><code>a = True; b = False
+print(type(a))   # &lt;class 'bool'&gt;
+print(int(True)) # 1
+print(int(False))# 0</code></pre>
+
+      <h4>3. Sequence Types</h4>
+      <pre><code>s = "Hello"          # str — immutable char sequence
+lst = [1, 2, 3]     # list — mutable sequence
+tup = (1, 2, 3)     # tuple — immutable sequence
+rng = range(1, 10)  # range — immutable sequence of ints</code></pre>
+
+      <h4>4. Mapping Type — Dictionary</h4>
+      <pre><code>d = {'name': 'Alice', 'age': 25, 'city': 'Delhi'}
+print(d['name'])     # Alice
+print(d.keys())      # dict_keys(['name', 'age', 'city'])
+print(d.values())    # dict_values(['Alice', 25, 'Delhi'])</code></pre>
+
+      <h4>5. Set Types</h4>
+      <pre><code>s1 = {1, 2, 3, 3, 4}     # set — unique, unordered
+s2 = frozenset({1, 2, 3}) # frozenset — immutable set
+print(s1)    # {1, 2, 3, 4}  (duplicates removed)</code></pre>
+
+      <h4>6. Binary Types</h4>
+      <pre><code>b = b"hello"              # bytes — immutable
+ba = bytearray(b"hello")  # bytearray — mutable
+mv = memoryview(b"hello") # memoryview</code></pre>
+
+      <h4>7. None Type</h4>
+      <pre><code>x = None
+print(type(x))   # &lt;class 'NoneType'&gt;
+print(x is None) # True</code></pre>
+
+      <h4>Complete Overview Table</h4>
+      <table>
+        <tr><th>Category</th><th>Types</th><th>Mutable?</th></tr>
+        <tr><td>Numeric</td><td>int, float, complex</td><td>No</td></tr>
+        <tr><td>Boolean</td><td>bool</td><td>No</td></tr>
+        <tr><td>Sequence</td><td>str, list, tuple, range</td><td>list: Yes; rest: No</td></tr>
+        <tr><td>Mapping</td><td>dict</td><td>Yes</td></tr>
+        <tr><td>Set</td><td>set, frozenset</td><td>set: Yes; frozenset: No</td></tr>
+        <tr><td>Binary</td><td>bytes, bytearray, memoryview</td><td>bytearray: Yes; others: No</td></tr>
+        <tr><td>None</td><td>NoneType</td><td>N/A</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="q-card" id="m1q15">
+    <div class="q-header">
+      <span class="q-num">Q15</span>
+      <h3>Define variable. Explain the rules to define variables.</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Definition of Variable</h4>
+      <p>A <strong>variable</strong> is a named memory location that stores a value. In Python, variables are created when you assign a value to them using the <span class="inline-code">=</span> operator. Python is dynamically typed, so the type is inferred at runtime.</p>
+      <pre><code>x = 10          # integer variable
+name = "Alice"  # string variable
+pi = 3.14159    # float variable
+is_valid = True # boolean variable</code></pre>
+
+      <h4>Rules for Defining Variables in Python</h4>
+      <ol>
+        <li><strong>Must start with a letter (a-z, A-Z) or underscore (_):</strong>
+          <pre><code>name = "Valid"    # Valid
+_count = 5        # Valid
+1var = 10         # INVALID — starts with digit</code></pre>
+        </li>
+        <li><strong>Can contain letters, digits (0-9), and underscores:</strong>
+          <pre><code>student_age = 20  # Valid
+score2024 = 95   # Valid
+my-var = 5       # INVALID — hyphen not allowed</code></pre>
+        </li>
+        <li><strong>Case-Sensitive:</strong>
+          <pre><code>name = "Alice"
+Name = "Bob"
+NAME = "Carol"
+print(name, Name, NAME)  # Alice Bob Carol — all different</code></pre>
+        </li>
+        <li><strong>Cannot be a Python keyword (reserved word):</strong>
+          <pre><code># import keyword; print(keyword.kwlist)
+# Keywords: if, else, for, while, class, def, return, True, False, None, etc.
+for = 10   # INVALID — 'for' is a keyword
+class = 5  # INVALID</code></pre>
+        </li>
+        <li><strong>No spaces in variable names:</strong>
+          <pre><code>my age = 25    # INVALID
+my_age = 25   # Valid (use underscore)</code></pre>
+        </li>
+        <li><strong>No special characters except underscore:</strong>
+          <pre><code>price$ = 100   # INVALID
+@name = "x"   # INVALID
+_price = 100  # Valid</code></pre>
+        </li>
+      </ol>
+
+      <h4>Naming Conventions (Best Practices)</h4>
+      <table>
+        <tr><th>Convention</th><th>Use For</th><th>Example</th></tr>
+        <tr><td>snake_case</td><td>Variables, functions</td><td>student_name, get_marks()</td></tr>
+        <tr><td>PascalCase</td><td>Class names</td><td>StudentRecord, BankAccount</td></tr>
+        <tr><td>UPPER_CASE</td><td>Constants</td><td>MAX_SIZE, PI</td></tr>
+        <tr><td>_single_leading</td><td>Internal/private</td><td>_helper</td></tr>
+        <tr><td>__double_leading</td><td>Name mangling (class)</td><td>__private_var</td></tr>
+      </table>
+
+      <h4>Multiple Assignment</h4>
+      <pre><code>a = b = c = 0         # Same value to multiple
+x, y, z = 10, 20, 30  # Different values</code></pre>
+    </div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="q-card" id="m1q16">
+    <div class="q-header">
+      <span class="q-num">Q16</span>
+      <h3>Explain the difference between mutable and immutable data types in Python with examples</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Mutable Data Types</h4>
+      <p>Mutable objects can be <strong>modified</strong> after creation. Changes happen in-place without creating a new object.</p>
+      <p><strong>Mutable types:</strong> list, dict, set, bytearray</p>
+      <pre><code># List — mutable
+lst = [1, 2, 3]
+print(id(lst))         # e.g., 140234567
+lst[0] = 99
+lst.append(4)
+print(lst)             # [99, 2, 3, 4]
+print(id(lst))         # SAME id — modified in place
+
+# Dictionary — mutable
+d = {'a': 1, 'b': 2}
+d['c'] = 3             # Add key-value pair
+d['a'] = 100           # Modify value
+print(d)               # {'a': 100, 'b': 2, 'c': 3}
+
+# Set — mutable
+s = {1, 2, 3}
+s.add(4)               # Valid
+s.remove(2)
+print(s)               # {1, 3, 4}</code></pre>
+
+      <h4>Immutable Data Types</h4>
+      <p>Immutable objects <strong>cannot be modified</strong> after creation. Any operation that seems to modify them creates a new object.</p>
+      <p><strong>Immutable types:</strong> int, float, bool, str, tuple, frozenset, bytes</p>
+      <pre><code># String — immutable
+s = "hello"
+print(id(s))    # e.g., 140000001
+# s[0] = 'H'   # TypeError: 'str' object does not support item assignment
+s = s + " world"  # Creates a NEW string object
+print(id(s))    # Different id!
+
+# Tuple — immutable
+t = (1, 2, 3)
+# t[0] = 99    # TypeError: 'tuple' does not support item assignment
+t2 = t + (4,)  # Creates new tuple
+print(t2)      # (1, 2, 3, 4)
+
+# Integer — immutable
+x = 10
+print(id(x))   # e.g., 9788992
+x = x + 1     # New int object created
+print(id(x))   # Different id</code></pre>
+
+      <h4>Memory Behavior Diagram</h4>
+      <div class="diagram">MUTABLE (list):
+x = [1,2,3]      x ---> [Memory: 1,2,3]  id=1000
+x[0] = 99        x ---> [Memory: 99,2,3] id=1000 (SAME)
+
+IMMUTABLE (tuple):
+t = (1,2,3)      t ---> (Memory: 1,2,3)  id=2000
+t = t + (4,)     t ---> (Memory: 1,2,3,4) id=3000 (NEW)</div>
+
+      <h4>Comparison Table</h4>
+      <table>
+        <tr><th>Feature</th><th>Mutable</th><th>Immutable</th></tr>
+        <tr><td>Can change after creation?</td><td>Yes</td><td>No</td></tr>
+        <tr><td>Memory id changes on modify?</td><td>No (same object)</td><td>Yes (new object)</td></tr>
+        <tr><td>Types</td><td>list, dict, set</td><td>int, str, tuple, float</td></tr>
+        <tr><td>Can use as dict key?</td><td>No</td><td>Yes (hashable)</td></tr>
+        <tr><td>Thread safety</td><td>May need locks</td><td>Inherently thread-safe</td></tr>
+        <tr><td>Performance</td><td>Flexible but more overhead</td><td>More efficient (cached)</td></tr>
+      </table>
+
+      <h4>Python Integer Caching</h4>
+      <pre><code># Python caches integers -5 to 256
+a = 100; b = 100
+print(a is b)   # True  (same cached object)
+
+a = 1000; b = 1000
+print(a is b)   # False (separate objects outside cache range)</code></pre>
+    </div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="q-card" id="m1q17">
+    <div class="q-header">
+      <span class="q-num">Q17</span>
+      <h3>Define a Python function find_factorial(n) that calculates and returns the factorial</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>What is Factorial?</h4>
+      <p>The factorial of a positive integer n is the product of all positive integers from 1 to n. Notation: n!</p>
+      <p>n! = n × (n-1) × (n-2) × ... × 2 × 1, where 0! = 1</p>
+
+      <h4>Method 1: Iterative Approach</h4>
+      <pre><code>def find_factorial(n):
+    """
+    Calculate factorial of n iteratively.
+    Args: n — non-negative integer
+    Returns: factorial of n
+    """
+    if n < 0:
+        return "Error: Factorial undefined for negative numbers"
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+# Test cases
+print(find_factorial(0))   # 1
+print(find_factorial(1))   # 1
+print(find_factorial(5))   # 120
+print(find_factorial(10))  # 3628800
+print(find_factorial(-3))  # Error message</code></pre>
+
+      <h4>Method 2: Recursive Approach</h4>
+      <pre><code>def find_factorial(n):
+    """
+    Calculate factorial of n recursively.
+    Base case: n == 0 returns 1
+    Recursive case: n * factorial(n-1)
+    """
+    if n < 0:
+        raise ValueError("Factorial not defined for negative numbers")
+    if n == 0 or n == 1:  # Base case
+        return 1
+    return n * find_factorial(n - 1)  # Recursive call
+
+# Trace for find_factorial(5):
+# 5 * find_factorial(4)
+#     4 * find_factorial(3)
+#         3 * find_factorial(2)
+#             2 * find_factorial(1)
+#                 return 1
+# 2*1=2, 3*2=6, 4*6=24, 5*24=120
+
+print(find_factorial(5))   # 120</code></pre>
+
+      <h4>Method 3: Using math module</h4>
+      <pre><code>import math
+
+def find_factorial(n):
+    return math.factorial(n)
+
+print(find_factorial(12))  # 479001600</code></pre>
+
+      <h4>Method 4: Using functools.reduce</h4>
+      <pre><code>from functools import reduce
+
+def find_factorial(n):
+    if n == 0:
+        return 1
+    return reduce(lambda x, y: x * y, range(1, n+1))
+
+print(find_factorial(6))   # 720</code></pre>
+
+      <h4>Complete Program with Input Validation</h4>
+      <pre><code>def find_factorial(n):
+    if not isinstance(n, int):
+        raise TypeError("Input must be an integer")
+    if n < 0:
+        raise ValueError("Input must be non-negative")
+    if n == 0 or n == 1:
+        return 1
+    result = 1
+    for i in range(2, n + 1):
+        result *= i
+    return result
+
+# Test
+for num in [0, 1, 5, 7, 10, 15]:
+    print(f"{num}! = {find_factorial(num)}")</code></pre>
+      <div class="output-box">0! = 1
+1! = 1
+5! = 120
+7! = 5040
+10! = 3628800
+15! = 1307674368000</div>
+    </div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="q-card" id="m1q18">
+    <div class="q-header">
+      <span class="q-num">Q18</span>
+      <h3>What is the purpose of import statement in Python? List the various ways to use import.</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Purpose of import Statement</h4>
+      <p>The <span class="inline-code">import</span> statement allows you to bring in code from other modules (files) or packages into your current program. This promotes:</p>
+      <ul>
+        <li><strong>Code Reusability</strong> — use existing, tested code</li>
+        <li><strong>Modularity</strong> — keep code organized in separate files</li>
+        <li><strong>Namespace Management</strong> — avoid name conflicts</li>
+        <li><strong>Access to Standard Library</strong> — math, os, sys, etc.</li>
+        <li><strong>Access to Third-Party Libraries</strong> — NumPy, Pandas, etc.</li>
+      </ul>
+
+      <h4>Ways to Use import</h4>
+
+      <h4>1. Simple import</h4>
+      <pre><code>import math
+print(math.sqrt(16))   # 4.0
+print(math.pi)         # 3.14159...
+print(math.factorial(5)) # 120</code></pre>
+
+      <h4>2. import with alias (as)</h4>
+      <pre><code>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+arr = np.array([1, 2, 3])
+df = pd.DataFrame({'A': [1, 2, 3]})</code></pre>
+
+      <h4>3. from ... import (specific item)</h4>
+      <pre><code>from math import sqrt, pi, factorial
+
+print(sqrt(25))     # 5.0 — no need for math.sqrt
+print(pi)           # 3.14159
+print(factorial(5)) # 120</code></pre>
+
+      <h4>4. from ... import * (all items)</h4>
+      <pre><code>from math import *
+# Imports all public names from math
+print(sin(0))    # 0.0
+print(cos(0))    # 1.0
+# Caution: can pollute namespace</code></pre>
+
+      <h4>5. from ... import with alias</h4>
+      <pre><code>from datetime import datetime as dt
+now = dt.now()
+print(now.strftime("%Y-%m-%d %H:%M:%S"))</code></pre>
+
+      <h4>6. Importing sub-modules</h4>
+      <pre><code>from os import path
+from collections import OrderedDict, defaultdict
+from sklearn.model_selection import train_test_split</code></pre>
+
+      <h4>7. Conditional import</h4>
+      <pre><code>try:
+    import ujson as json  # Fast JSON library
+except ImportError:
+    import json           # Fall back to standard library</code></pre>
+
+      <h4>8. Lazy / delayed import (inside function)</h4>
+      <pre><code>def process_data():
+    import pandas as pd   # Only loaded when function is called
+    df = pd.read_csv('data.csv')
+    return df</code></pre>
+
+      <h4>9. Importing custom modules</h4>
+      <pre><code># mymodule.py:
+# def greet(name):
+#     return f"Hello, {name}!"
+
+import mymodule
+print(mymodule.greet("Alice"))
+
+# or
+from mymodule import greet
+print(greet("Bob"))</code></pre>
+
+      <h4>Module Search Path</h4>
+      <p>When you import a module, Python searches in this order:</p>
+      <ol>
+        <li>Built-in modules (math, os, sys)</li>
+        <li>Current directory</li>
+        <li>PYTHONPATH environment variable directories</li>
+        <li>Default installation directories (site-packages)</li>
+      </ol>
+      <pre><code>import sys
+print(sys.path)   # List of search paths</code></pre>
+    </div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="q-card" id="m1q19">
+    <div class="q-header">
+      <span class="q-num">Q19</span>
+      <h3>How can you return multiple values from function? Explain with example.</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Introduction</h4>
+      <p>Python functions can return multiple values by separating them with commas. Internally, Python packs them into a <strong>tuple</strong>, which can be unpacked by the caller.</p>
+
+      <h4>Method 1: Return as Tuple (most common)</h4>
+      <pre><code>def get_stats(numbers):
+    """Returns min, max, mean of a list."""
+    minimum = min(numbers)
+    maximum = max(numbers)
+    mean = sum(numbers) / len(numbers)
+    return minimum, maximum, mean   # Returns a tuple
+
+data = [15, 3, 8, 22, 7, 19, 11]
+mn, mx, avg = get_stats(data)     # Tuple unpacking
+print(f"Min: {mn}, Max: {mx}, Mean: {avg:.2f}")
+# Min: 3, Max: 22, Mean: 12.14</code></pre>
+
+      <h4>Method 2: Return as List</h4>
+      <pre><code>def arithmetic_ops(a, b):
+    return [a+b, a-b, a*b, a/b]
+
+results = arithmetic_ops(10, 3)
+print(results)      # [13, 7, 30, 3.333...]
+add, sub, mul, div = results</code></pre>
+
+      <h4>Method 3: Return as Dictionary</h4>
+      <pre><code>def employee_info(name, age, salary):
+    return {
+        "name": name,
+        "age": age,
+        "salary": salary,
+        "annual": salary * 12
+    }
+
+info = employee_info("Alice", 30, 50000)
+print(info['name'])    # Alice
+print(info['annual'])  # 600000</code></pre>
+
+      <h4>Method 4: Return as Named Tuple</h4>
+      <pre><code>from collections import namedtuple
+
+Point = namedtuple('Point', ['x', 'y', 'z'])
+
+def get_coordinates():
+    return Point(10.5, 20.3, 5.7)
+
+p = get_coordinates()
+print(p.x, p.y, p.z)  # 10.5 20.3 5.7
+print(p)               # Point(x=10.5, y=20.3, z=5.7)</code></pre>
+
+      <h4>Practical Example: Quadratic Formula</h4>
+      <pre><code>import math
+
+def solve_quadratic(a, b, c):
+    """Solve ax^2 + bx + c = 0"""
+    discriminant = b**2 - 4*a*c
+    if discriminant < 0:
+        return None, None  # No real solutions
+    elif discriminant == 0:
+        x = -b / (2 * a)
+        return x, x        # One solution (repeated)
+    else:
+        x1 = (-b + math.sqrt(discriminant)) / (2 * a)
+        x2 = (-b - math.sqrt(discriminant)) / (2 * a)
+        return x1, x2
+
+r1, r2 = solve_quadratic(1, -5, 6)  # x^2 - 5x + 6 = 0
+print(f"Roots: {r1}, {r2}")   # Roots: 3.0, 2.0</code></pre>
+
+      <h4>Key Points</h4>
+      <ul>
+        <li>Python's <span class="inline-code">return a, b</span> is equivalent to <span class="inline-code">return (a, b)</span></li>
+        <li>Unpacking: <span class="inline-code">x, y = func()</span> assigns values by position</li>
+        <li>You can use <span class="inline-code">_</span> to ignore values: <span class="inline-code">x, _ = func()</span></li>
+        <li>Use dictionaries when returning many named values for clarity</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="q-card" id="m1q20">
+    <div class="q-header">
+      <span class="q-num">Q20</span>
+      <h3>Predict the output of the given code (Dictionary operations)</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Given Code</h4>
+      <pre><code>dic_str = {'S': "Science", 'N': "Non-Medical", 'C': "Commerce", 'A': "Arts"}
+len(dic_str)
+dic_str.keys()
+print(dic_str.get('V'))
+dic_str['V'] = "Vocational"
+print(dic_str)
+del dic_str['N']
+print(dic_str.values())</code></pre>
+
+      <h4>Step-by-Step Explanation and Output</h4>
+      <table>
+        <tr><th>Line</th><th>Statement</th><th>Explanation</th><th>Output</th></tr>
+        <tr><td>1</td><td>dic_str = {'S':...}</td><td>Dictionary created with 4 key-value pairs</td><td>(no output)</td></tr>
+        <tr><td>2</td><td>len(dic_str)</td><td>Returns 4, but not printed</td><td>(no output)</td></tr>
+        <tr><td>3</td><td>dic_str.keys()</td><td>Returns keys, but not printed</td><td>(no output)</td></tr>
+        <tr><td>4</td><td>print(dic_str.get('V'))</td><td>'V' does not exist → get() returns None</td><td>None</td></tr>
+        <tr><td>5</td><td>dic_str['V'] = "Vocational"</td><td>Adds new key 'V' with value "Vocational"</td><td>(no output)</td></tr>
+        <tr><td>6</td><td>print(dic_str)</td><td>Prints full dictionary with 5 entries</td><td>{'S': 'Science', 'N': 'Non-Medical', 'C': 'Commerce', 'A': 'Arts', 'V': 'Vocational'}</td></tr>
+        <tr><td>7</td><td>del dic_str['N']</td><td>Removes key 'N' and its value</td><td>(no output)</td></tr>
+        <tr><td>8</td><td>print(dic_str.values())</td><td>Prints all remaining values</td><td>dict_values(['Science', 'Commerce', 'Arts', 'Vocational'])</td></tr>
+      </table>
+
+      <h4>Complete Output</h4>
+      <div class="output-box">None
+{'S': 'Science', 'N': 'Non-Medical', 'C': 'Commerce', 'A': 'Arts', 'V': 'Vocational'}
+dict_values(['Science', 'Commerce', 'Arts', 'Vocational'])</div>
+
+      <h4>Key Dictionary Methods Used</h4>
+      <table>
+        <tr><th>Method/Operation</th><th>Description</th></tr>
+        <tr><td>len(d)</td><td>Returns number of key-value pairs</td></tr>
+        <tr><td>d.keys()</td><td>Returns all keys</td></tr>
+        <tr><td>d.values()</td><td>Returns all values</td></tr>
+        <tr><td>d.get(key)</td><td>Returns value; None if key absent (no error)</td></tr>
+        <tr><td>d[key] = value</td><td>Adds new or updates existing key</td></tr>
+        <tr><td>del d[key]</td><td>Deletes a key-value pair</td></tr>
+      </table>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===================== MODULE 2 ===================== -->
+<section class="module-section" id="module2">
+  <div class="module-header m2-header">
+    <div class="module-num">02</div>
+    <div>
+      <h2>Module 2 — Machine Learning Fundamentals</h2>
+      <p style="color:#8b949e;margin-top:4px;">ML Types, Lifecycle, Algorithms, Pandas Visualization</p>
+    </div>
+  </div>
+
+  <!-- M2 Q1 -->
+  <div class="q-card" id="m2q1">
+    <div class="q-header">
+      <span class="q-num">M2 Q1</span>
+      <h3>Give the meaning and need of Machine Learning</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Meaning of Machine Learning</h4>
+      <p>Machine Learning (ML) is a subset of Artificial Intelligence that gives computers the ability to <strong>learn from data and improve their performance over time without being explicitly programmed</strong>. The term was coined by <strong>Arthur Samuel in 1959</strong>.</p>
+      <p>Formal Definition (Tom Mitchell, 1997): <em>"A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks T improves with experience E."</em></p>
+
+      <h4>Traditional Programming vs. Machine Learning</h4>
+      <div class="diagram">Traditional: Data + Rules → Computer → Output
+Machine Learning: Data + Output → Computer → Rules (Model)</div>
+
+      <h4>Need for Machine Learning</h4>
+      <ol>
+        <li><strong>Handling Massive Data:</strong> Modern applications generate petabytes of data daily (social media, IoT, transactions). ML can process and extract patterns from this data automatically.</li>
+        <li><strong>Tasks Impossible to Manually Program:</strong> Tasks like image recognition, speech understanding, and natural language processing are too complex to write explicit rules for — but ML can learn them.</li>
+        <li><strong>Adaptive Systems:</strong> ML models continuously learn and improve. Spam filters, recommendation engines, and fraud detectors improve over time with new data.</li>
+        <li><strong>Personalization:</strong> Netflix, Amazon, and Spotify use ML to personalize recommendations for each user uniquely — impossible manually.</li>
+        <li><strong>Automation:</strong> ML automates repetitive cognitive tasks — data entry, document classification, customer support (chatbots).</li>
+        <li><strong>Pattern Recognition:</strong> ML identifies hidden patterns in complex data — financial fraud detection, medical diagnosis, market prediction.</li>
+        <li><strong>Real-Time Decision Making:</strong> Self-driving cars, algorithmic trading, and industrial robots need instantaneous decisions based on sensory data — only possible with trained ML models.</li>
+        <li><strong>Competitive Advantage:</strong> Companies using ML analyze customers better, optimize operations, and make data-driven decisions faster than competitors.</li>
+        <li><strong>Healthcare and Science:</strong> AlphaFold predicts protein structures; ML discovers new drugs; cancer detection models outperform human radiologists.</li>
+        <li><strong>Natural Language Understanding:</strong> Virtual assistants (Siri, Alexa, Google Assistant) understand and respond to human speech using ML.</li>
+      </ol>
+
+      <h4>Key Areas Where ML is Essential</h4>
+      <table>
+        <tr><th>Domain</th><th>ML Application</th></tr>
+        <tr><td>Healthcare</td><td>Disease diagnosis, drug discovery</td></tr>
+        <tr><td>Finance</td><td>Fraud detection, credit scoring</td></tr>
+        <tr><td>E-commerce</td><td>Product recommendation</td></tr>
+        <tr><td>Autonomous Vehicles</td><td>Object detection, path planning</td></tr>
+        <tr><td>Manufacturing</td><td>Predictive maintenance</td></tr>
+        <tr><td>NLP</td><td>Translation, sentiment analysis</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- M2 Q2 -->
+  <div class="q-card" id="m2q2">
+    <div class="q-header">
+      <span class="q-num">M2 Q2</span>
+      <h3>What do you mean by Machine Learning? Types of Machine Learning.</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Definition</h4>
+      <p>Machine Learning is the science of building systems that learn from data, identify patterns, and make decisions with minimal human intervention. It relies on <strong>statistical algorithms and computational models</strong> that improve as they are exposed to more data.</p>
+
+      <h4>Types of Machine Learning</h4>
+
+      <h4>1. Supervised Learning</h4>
+      <p>The algorithm learns from <strong>labeled training data</strong> (input-output pairs). The goal is to learn a mapping function f(x) = y.</p>
+      <pre><code># Classification Example
+from sklearn.svm import SVC
+model = SVC()
+model.fit(X_train, y_train)   # Labeled data
+predictions = model.predict(X_test)</code></pre>
+      <p><strong>Sub-types:</strong></p>
+      <ul>
+        <li><strong>Classification:</strong> Predict discrete labels (spam/not-spam, disease/healthy)</li>
+        <li><strong>Regression:</strong> Predict continuous values (house price, stock price)</li>
+      </ul>
+      <p><strong>Algorithms:</strong> Linear Regression, Logistic Regression, SVM, Decision Trees, Random Forest, KNN, Neural Networks</p>
+
+      <h4>2. Unsupervised Learning</h4>
+      <p>The algorithm learns from <strong>unlabeled data</strong>, discovering hidden patterns and structures without guidance.</p>
+      <pre><code>from sklearn.cluster import KMeans
+model = KMeans(n_clusters=3)
+model.fit(X)   # No labels needed
+clusters = model.labels_</code></pre>
+      <p><strong>Sub-types:</strong></p>
+      <ul>
+        <li><strong>Clustering:</strong> Group similar data points (K-Means, DBSCAN, Hierarchical)</li>
+        <li><strong>Dimensionality Reduction:</strong> Reduce features (PCA, t-SNE, UMAP)</li>
+        <li><strong>Association:</strong> Find co-occurring items (Apriori, FP-Growth)</li>
+      </ul>
+
+      <h4>3. Reinforcement Learning</h4>
+      <p>An <strong>agent</strong> interacts with an <strong>environment</strong>, learns by receiving <strong>rewards or penalties</strong>, and aims to maximize cumulative reward.</p>
+      <div class="diagram">Agent → Action → Environment → State + Reward → Agent</div>
+      <p><strong>Applications:</strong> Game playing (AlphaGo, Chess), robotics, autonomous driving, resource management.</p>
+      <p><strong>Algorithms:</strong> Q-Learning, SARSA, Deep Q-Network (DQN), Policy Gradient</p>
+
+      <h4>4. Semi-Supervised Learning</h4>
+      <p>Uses a small amount of <strong>labeled data</strong> combined with a large amount of <strong>unlabeled data</strong>. Useful when labeling is expensive.</p>
+      <p><strong>Example:</strong> Google Photos — labels few images, clusters the rest using those labels.</p>
+
+      <h4>5. Self-Supervised Learning</h4>
+      <p>The model generates its own supervisory signal from the input data. Used in large language models (BERT, GPT).</p>
+
+      <h4>Comparison Table</h4>
+      <table>
+        <tr><th>Type</th><th>Data</th><th>Goal</th><th>Example</th></tr>
+        <tr><td>Supervised</td><td>Labeled</td><td>Predict output</td><td>Email spam detection</td></tr>
+        <tr><td>Unsupervised</td><td>Unlabeled</td><td>Find patterns</td><td>Customer segmentation</td></tr>
+        <tr><td>Reinforcement</td><td>Experience/Rewards</td><td>Maximize reward</td><td>Chess-playing AI</td></tr>
+        <tr><td>Semi-supervised</td><td>Partly labeled</td><td>Improve with few labels</td><td>Medical imaging</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- M2 Q5 -->
+  <div class="q-card" id="m2q5">
+    <div class="q-header">
+      <span class="q-num">M2 Q5</span>
+      <h3>Differentiate between Supervised and Unsupervised Machine Learning</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Supervised Learning</h4>
+      <p>In supervised learning, the model is trained on a <strong>labeled dataset</strong>, where each training example has an associated output (label). The model learns the mapping from inputs to outputs.</p>
+      <pre><code># Example: Predicting if email is spam
+X_train = [[...], [...]]   # Email features
+y_train = [1, 0, 1, 0]    # 1=spam, 0=not spam
+from sklearn.naive_bayes import MultinomialNB
+model = MultinomialNB()
+model.fit(X_train, y_train)
+print(model.predict([[...]]))</code></pre>
+
+      <h4>Unsupervised Learning</h4>
+      <p>In unsupervised learning, the model trains on <strong>unlabeled data</strong> and must discover the underlying structure, patterns, or groupings by itself.</p>
+      <pre><code># Example: Customer segmentation
+X = [[...], [...]]   # Customer features, no labels
+from sklearn.cluster import KMeans
+model = KMeans(n_clusters=3)
+model.fit(X)
+print(model.labels_)  # Groups: [0, 2, 1, 0, 2...]</code></pre>
+
+      <h4>Detailed Comparison Table</h4>
+      <table>
+        <tr><th>Aspect</th><th>Supervised Learning</th><th>Unsupervised Learning</th></tr>
+        <tr><td>Data Labels</td><td>Labeled (input + output)</td><td>Unlabeled (input only)</td></tr>
+        <tr><td>Goal</td><td>Predict output for new input</td><td>Discover hidden patterns/structure</td></tr>
+        <tr><td>Output</td><td>Predicted label or value</td><td>Clusters, associations, reduced dimensions</td></tr>
+        <tr><td>Feedback</td><td>Learns from labeled examples</td><td>No direct feedback mechanism</td></tr>
+        <tr><td>Evaluation</td><td>Accuracy, precision, F1, RMSE</td><td>Silhouette score, inertia, elbow method</td></tr>
+        <tr><td>Complexity</td><td>Simpler (clear objective)</td><td>Harder (subjective results)</td></tr>
+        <tr><td>Algorithms</td><td>LR, SVM, RF, KNN, ANN</td><td>K-Means, DBSCAN, PCA, Apriori</td></tr>
+        <tr><td>Examples</td><td>Spam detection, price prediction, OCR</td><td>Customer segmentation, topic modeling</td></tr>
+        <tr><td>Labeling cost</td><td>High (human annotation needed)</td><td>Low (no labels needed)</td></tr>
+        <tr><td>Interpretability</td><td>More interpretable</td><td>Less interpretable</td></tr>
+      </table>
+
+      <h4>When to Use Each</h4>
+      <ul>
+        <li>Use <strong>Supervised</strong> when you have labeled data and a clear prediction target.</li>
+        <li>Use <strong>Unsupervised</strong> when labels are unavailable or expensive, and you want to explore data structure.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- M2 Q7 -->
+  <div class="q-card" id="m2q7">
+    <div class="q-header">
+      <span class="q-num">M2 Q7</span>
+      <h3>Elaborate Machine Learning Lifecycle</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Machine Learning Lifecycle</h4>
+      <p>The ML lifecycle (also called ML pipeline) describes the end-to-end process of building, deploying, and maintaining a machine learning model.</p>
+
+      <div class="diagram">1. Problem Definition
+        ↓
+2. Data Collection
+        ↓
+3. Data Preprocessing
+        ↓
+4. Exploratory Data Analysis (EDA)
+        ↓
+5. Feature Engineering
+        ↓
+6. Model Selection
+        ↓
+7. Model Training
+        ↓
+8. Model Evaluation
+        ↓
+9. Model Tuning / Optimization
+        ↓
+10. Model Deployment
+        ↓
+11. Monitoring & Maintenance
+        ↓ (feedback loop)
+     [repeat]</div>
+
+      <h4>Stage Details</h4>
+      <ol>
+        <li><strong>Problem Definition:</strong> Define business objective, success metrics, type of ML problem (classification, regression, clustering), and constraints.</li>
+        <li><strong>Data Collection:</strong> Gather relevant data from databases, APIs, web scraping, sensors, surveys, or public datasets.</li>
+        <li><strong>Data Preprocessing:</strong> Handle missing values, remove duplicates, fix inconsistencies, convert data types, encode categories, normalize/scale features.</li>
+        <li><strong>EDA (Exploratory Data Analysis):</strong> Visualize distributions, correlations, outliers using plots (histograms, boxplots, heatmaps, scatter plots) and statistical summaries.</li>
+        <li><strong>Feature Engineering:</strong> Create new features, select relevant ones, remove redundant features using techniques like PCA, mutual information, or correlation analysis.</li>
+        <li><strong>Model Selection:</strong> Choose appropriate algorithms based on problem type, data size, interpretability requirements, and performance benchmarks.</li>
+        <li><strong>Model Training:</strong> Feed training data into the algorithm, which adjusts parameters to minimize error (loss function).</li>
+        <li><strong>Model Evaluation:</strong> Test on held-out test data using appropriate metrics (accuracy, RMSE, AUC-ROC, F1-score).</li>
+        <li><strong>Hyperparameter Tuning:</strong> Optimize model parameters using Grid Search, Random Search, or Bayesian Optimization. Use cross-validation.</li>
+        <li><strong>Model Deployment:</strong> Serve the model as an API (Flask, FastAPI), integrate into applications, or deploy to cloud (AWS SageMaker, GCP AI Platform).</li>
+        <li><strong>Monitoring:</strong> Track model performance over time. Detect data drift, model degradation, and retrain as needed.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- M2 Q12 -->
+  <div class="q-card" id="m2q12">
+    <div class="q-header">
+      <span class="q-num">M2 Q12</span>
+      <h3>Elaborate on Reinforcement Learning</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Introduction</h4>
+      <p>Reinforcement Learning (RL) is a type of ML where an <strong>agent</strong> learns to make decisions by interacting with an <strong>environment</strong>. The agent takes actions, receives feedback in the form of <strong>rewards</strong> or <strong>penalties</strong>, and learns a policy that maximizes cumulative reward over time.</p>
+
+      <h4>Key Components</h4>
+      <table>
+        <tr><th>Component</th><th>Description</th></tr>
+        <tr><td>Agent</td><td>The learner/decision maker (e.g., a robot, game player)</td></tr>
+        <tr><td>Environment</td><td>Everything the agent interacts with (e.g., a game, physical world)</td></tr>
+        <tr><td>State (s)</td><td>Current situation of the agent in the environment</td></tr>
+        <tr><td>Action (a)</td><td>Decisions the agent can take in each state</td></tr>
+        <tr><td>Reward (r)</td><td>Feedback signal (+1 for good, -1 for bad)</td></tr>
+        <tr><td>Policy (π)</td><td>Strategy mapping states to actions: π(s) → a</td></tr>
+        <tr><td>Value Function</td><td>Expected cumulative reward from a state</td></tr>
+        <tr><td>Q-Function</td><td>Expected reward for taking action a in state s</td></tr>
+      </table>
+
+      <h4>RL Loop</h4>
+      <div class="diagram">Agent observes State (s_t)
+    ↓
+Agent takes Action (a_t) based on policy
+    ↓
+Environment transitions to new State (s_{t+1})
+    ↓
+Agent receives Reward (r_t)
+    ↓
+Agent updates policy to maximize future rewards
+    ↓ (repeats)</div>
+
+      <h4>Key RL Algorithms</h4>
+      <ol>
+        <li><strong>Q-Learning:</strong> Model-free, off-policy. Learns Q-values (expected rewards) using the Bellman equation.</li>
+        <li><strong>SARSA:</strong> On-policy version of Q-Learning.</li>
+        <li><strong>Deep Q-Network (DQN):</strong> Uses neural networks to approximate Q-values — used by DeepMind to play Atari games.</li>
+        <li><strong>Policy Gradient Methods:</strong> Directly optimize the policy using gradient descent.</li>
+        <li><strong>Actor-Critic:</strong> Combines value function (critic) and policy (actor).</li>
+        <li><strong>Proximal Policy Optimization (PPO):</strong> Used in ChatGPT's RLHF training.</li>
+      </ol>
+
+      <h4>Bellman Equation</h4>
+      <p>The core update rule in Q-Learning:</p>
+      <div class="highlight-box">
+        <p>Q(s, a) ← Q(s, a) + α [r + γ · max Q(s', a') − Q(s, a)]</p>
+        <p>where α = learning rate, γ = discount factor</p>
+      </div>
+
+      <h4>Applications</h4>
+      <ul>
+        <li>AlphaGo — beat world Go champion</li>
+        <li>Game playing (Atari, Chess, Dota 2)</li>
+        <li>Robotics — walking, manipulation</li>
+        <li>Autonomous vehicles</li>
+        <li>Recommendation systems</li>
+        <li>Resource management (data centers, energy grids)</li>
+        <li>ChatGPT RLHF fine-tuning</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- M2 Q16 -->
+  <div class="q-card" id="m2q16">
+    <div class="q-header">
+      <span class="q-num">M2 Q16</span>
+      <h3>Explain the following: Histogram, Density Plot, and Box Plot</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>1. Histogram</h4>
+      <p>A histogram displays the <strong>frequency distribution</strong> of a continuous numerical variable. The x-axis shows value ranges (bins) and y-axis shows frequency (count).</p>
+      <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+data = np.random.normal(loc=50, scale=10, size=500)
+
+plt.figure(figsize=(10, 4))
+plt.subplot(1, 3, 1)
+plt.hist(data, bins=20, color='steelblue', edgecolor='black', alpha=0.7)
+plt.title('Histogram')
+plt.xlabel('Value'); plt.ylabel('Frequency')
+
+# Pandas version
+df = pd.DataFrame({'score': data})
+df['score'].hist(bins=20)
+plt.show()</code></pre>
+      <p><strong>Key insights from histogram:</strong></p>
+      <ul>
+        <li>Shape of distribution (normal, skewed, bimodal)</li>
+        <li>Central tendency and spread</li>
+        <li>Presence of outliers</li>
+        <li>Data gaps or unusual patterns</li>
+      </ul>
+
+      <h4>2. Density Plot (KDE — Kernel Density Estimation)</h4>
+      <p>A smooth, continuous version of the histogram that estimates the probability density function (PDF) of the data. Shows the shape of distribution more smoothly.</p>
+      <pre><code>import seaborn as sns
+
+plt.subplot(1, 3, 2)
+sns.kdeplot(data, fill=True, color='salmon')
+plt.title('Density Plot (KDE)')
+plt.xlabel('Value'); plt.ylabel('Density')
+
+# Combined histogram + KDE
+sns.histplot(data, kde=True, bins=20)
+plt.show()</code></pre>
+      <p><strong>Advantages over histogram:</strong></p>
+      <ul>
+        <li>Not affected by bin width choice</li>
+        <li>Shows smooth continuous distribution</li>
+        <li>Easy to compare multiple distributions</li>
+      </ul>
+
+      <h4>3. Box Plot (Box-and-Whisker Plot)</h4>
+      <p>A box plot displays the <strong>five-number summary</strong>: minimum, Q1, median (Q2), Q3, and maximum. It also shows outliers.</p>
+      <div class="diagram">  Minimum  Q1   Median  Q3  Maximum
+    |----[====|=========|====]-------|
+         Whisker | Box     | Whisker
+         
+  IQR = Q3 - Q1
+  Outlier if value > Q3 + 1.5*IQR or < Q1 - 1.5*IQR</div>
+      <pre><code>plt.subplot(1, 3, 3)
+plt.boxplot(data, vert=True, patch_artist=True,
+            boxprops=dict(facecolor='lightgreen'))
+plt.title('Box Plot')
+plt.ylabel('Value')
+
+# Seaborn grouped box plot
+iris = sns.load_dataset('iris')
+sns.boxplot(x='species', y='sepal_length', data=iris)
+plt.show()</code></pre>
+      <p><strong>Box plot reveals:</strong></p>
+      <ul>
+        <li>Median and quartiles</li>
+        <li>Spread (IQR = Q3 - Q1)</li>
+        <li>Skewness (if median is off-center in box)</li>
+        <li>Outliers (points beyond whiskers)</li>
+      </ul>
+
+      <h4>Comparison</h4>
+      <table>
+        <tr><th>Plot Type</th><th>Best For</th><th>Shows</th></tr>
+        <tr><td>Histogram</td><td>Single variable distribution</td><td>Frequency, shape, bins</td></tr>
+        <tr><td>Density Plot</td><td>Smooth distribution shape</td><td>Probability density, smooth curve</td></tr>
+        <tr><td>Box Plot</td><td>Summary statistics, outliers</td><td>Median, IQR, outliers</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- M2 Q17 -->
+  <div class="q-card" id="m2q17">
+    <div class="q-header">
+      <span class="q-num">M2 Q17</span>
+      <h3>Explain Scatter Plot, Correlation Matrix Plots and Heatmap</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>1. Scatter Plot</h4>
+      <p>A scatter plot displays the relationship between <strong>two continuous variables</strong>. Each point represents an observation with coordinates (x, y).</p>
+      <pre><code>import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+import pandas as pd
+
+# Basic scatter plot
+x = np.random.randn(100)
+y = 2*x + np.random.randn(100)*0.5
+
+plt.scatter(x, y, c='blue', alpha=0.6, edgecolors='navy', s=60)
+plt.xlabel('X Variable'); plt.ylabel('Y Variable')
+plt.title('Scatter Plot')
+plt.show()
+
+# Seaborn enhanced scatter with regression line
+iris = sns.load_dataset('iris')
+sns.scatterplot(x='sepal_length', y='petal_length',
+                hue='species', style='species', data=iris)
+sns.regplot(x='sepal_length', y='petal_length', data=iris,
+            scatter=False, color='red')
+plt.show()</code></pre>
+      <p><strong>Patterns in scatter plots:</strong></p>
+      <ul>
+        <li>Positive correlation — points rise from left to right</li>
+        <li>Negative correlation — points fall left to right</li>
+        <li>No correlation — random scatter</li>
+        <li>Non-linear relationships — curved patterns</li>
+      </ul>
+
+      <h4>2. Correlation Matrix</h4>
+      <p>A correlation matrix shows <strong>pairwise Pearson correlation coefficients</strong> between all numerical variables. Values range from -1 to +1.</p>
+      <pre><code>import pandas as pd
+
+df = pd.DataFrame(np.random.randn(100, 4),
+                  columns=['A','B','C','D'])
+df['B'] = df['A'] * 0.8 + np.random.randn(100)*0.2
+
+corr_matrix = df.corr()
+print(corr_matrix)</code></pre>
+      <p>Interpretation: +1 = perfect positive, 0 = no correlation, -1 = perfect negative</p>
+
+      <h4>3. Heatmap</h4>
+      <p>A heatmap visualizes a matrix of values using <strong>color intensity</strong>. Most commonly used to display correlation matrices.</p>
+      <pre><code>import seaborn as sns
+
+# Correlation heatmap
+plt.figure(figsize=(8, 6))
+sns.heatmap(corr_matrix,
+            annot=True,        # Show values
+            fmt='.2f',         # 2 decimal places
+            cmap='coolwarm',   # Color scheme
+            vmin=-1, vmax=1,   # Value range
+            linewidths=0.5,
+            square=True)
+plt.title('Correlation Heatmap')
+plt.tight_layout()
+plt.show()
+
+# Pair plot (scatter matrix)
+sns.pairplot(iris, hue='species', diag_kind='kde')
+plt.show()</code></pre>
+      <p><strong>Reading the heatmap:</strong></p>
+      <ul>
+        <li><strong>Dark red/warm:</strong> Strong positive correlation</li>
+        <li><strong>Dark blue/cool:</strong> Strong negative correlation</li>
+        <li><strong>White/light:</strong> Near-zero correlation</li>
+        <li>Diagonal: always 1.0 (variable with itself)</li>
+      </ul>
+
+      <h4>Use in Feature Selection</h4>
+      <p>Correlation heatmaps help identify:</p>
+      <ul>
+        <li>Highly correlated features → remove one (multicollinearity)</li>
+        <li>Features strongly correlated with target → good predictors</li>
+        <li>Independent features → all contribute unique information</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===================== MODULE 3 ===================== -->
+<section class="module-section" id="module3">
+  <div class="module-header m3-header">
+    <div class="module-num">03</div>
+    <div>
+      <h2>Module 3 — Data Preprocessing</h2>
+      <p style="color:#8b949e;margin-top:4px;">Missing Data, Encoding, Scaling, Feature Engineering, PCA</p>
+    </div>
+  </div>
+
+  <!-- M3 Q1 -->
+  <div class="q-card" id="m3q1">
+    <div class="q-header">
+      <span class="q-num">M3 Q1</span>
+      <h3>Write short notes on types of missingness</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Introduction</h4>
+      <p>Missing data is a common problem in real-world datasets. Understanding the <strong>mechanism</strong> of missingness is crucial for choosing the right imputation strategy. There are three main types defined by Rubin (1976).</p>
+
+      <h4>1. MCAR — Missing Completely At Random</h4>
+      <p>Data is MCAR when the probability of being missing is <strong>completely independent</strong> of both observed and unobserved data. The missingness is random with no pattern.</p>
+      <div class="success-box">
+        <strong>Example:</strong> A lab technician randomly drops some vials — the missing measurements have no relationship to the values themselves or other variables.
+      </div>
+      <ul>
+        <li>Missing data is a random sample of all data</li>
+        <li>Deletion of missing rows produces unbiased estimates</li>
+        <li>Most favorable but least common type</li>
+        <li>Test: Little's MCAR test</li>
+      </ul>
+
+      <h4>2. MAR — Missing At Random</h4>
+      <p>Data is MAR when the probability of being missing depends on <strong>other observed variables</strong>, but not on the missing variable itself.</p>
+      <div class="warn-box">
+        <strong>Example:</strong> Younger patients are less likely to fill out a health questionnaire (age is observed). Missing health data depends on age, not on the health value itself.
+      </div>
+      <ul>
+        <li>Most common type in practice</li>
+        <li>Can be handled properly using imputation that conditions on observed variables</li>
+        <li>Multiple imputation works well for MAR</li>
+        <li>Listwise deletion leads to bias if not accounted for</li>
+      </ul>
+
+      <h4>3. MNAR — Missing Not At Random</h4>
+      <p>Data is MNAR (also called NMAR) when the probability of being missing depends on the <strong>missing value itself</strong> or on unobserved variables.</p>
+      <div class="highlight-box">
+        <strong>Example:</strong> High-income individuals are less likely to report their salary. The salary value itself causes the missingness.
+      </div>
+      <ul>
+        <li>Most problematic type</li>
+        <li>Standard imputation methods can be severely biased</li>
+        <li>Requires domain knowledge or specialized models</li>
+        <li>Cannot be fully diagnosed from data alone</li>
+      </ul>
+
+      <h4>Additional Types</h4>
+      <ul>
+        <li><strong>Structurally Missing:</strong> Missing by design (e.g., skip patterns in surveys)</li>
+        <li><strong>Monotone Missingness:</strong> Once a value is missing, all subsequent values are also missing (common in longitudinal studies)</li>
+        <li><strong>Arbitrary Missingness:</strong> Values can be missing at any time point without a pattern</li>
+      </ul>
+
+      <h4>Comparison Table</h4>
+      <table>
+        <tr><th>Type</th><th>Depends on Observed?</th><th>Depends on Missing Value?</th><th>Severity</th></tr>
+        <tr><td>MCAR</td><td>No</td><td>No</td><td>Low</td></tr>
+        <tr><td>MAR</td><td>Yes</td><td>No</td><td>Moderate</td></tr>
+        <tr><td>MNAR</td><td>Possibly</td><td>Yes</td><td>High</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- M3 Q2 -->
+  <div class="q-card" id="m3q2">
+    <div class="q-header">
+      <span class="q-num">M3 Q2</span>
+      <h3>How to handle missing data? Explain with an example.</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Introduction</h4>
+      <p>Missing data can significantly bias ML models. Various strategies exist depending on the type and amount of missingness.</p>
+
+      <h4>1. Deletion Methods</h4>
+      <pre><code>import pandas as pd
+import numpy as np
+
+# Create sample data with missing values
+df = pd.DataFrame({
+    'Age': [25, np.nan, 30, np.nan, 35, 28],
+    'Salary': [50000, 60000, np.nan, 70000, 55000, np.nan],
+    'Score': [85, 78, 92, np.nan, 88, 75],
+    'Grade': ['A', 'B', 'A', np.nan, 'A', 'B']
+})
+print("Missing values:\n", df.isnull().sum())
+
+# Listwise deletion (complete case analysis)
+df_dropped_rows = df.dropna()
+
+# Column deletion (if >50% missing)
+df_dropped_cols = df.dropna(axis=1, thresh=0.5*len(df))
+df.drop(['Grade'], axis=1, inplace=True)  # Drop entire column</code></pre>
+
+      <h4>2. Imputation — Numerical Variables</h4>
+      <pre><code># Mean imputation
+df['Age'].fillna(df['Age'].mean(), inplace=True)
+
+# Median imputation (robust to outliers)
+df['Salary'].fillna(df['Salary'].median(), inplace=True)
+
+# Mode imputation (categorical)
+df['Grade'].fillna(df['Grade'].mode()[0], inplace=True)
+
+# Sklearn SimpleImputer
+from sklearn.impute import SimpleImputer
+imp = SimpleImputer(strategy='mean')  # or 'median', 'most_frequent'
+df[['Age','Salary']] = imp.fit_transform(df[['Age','Salary']])</code></pre>
+
+      <h4>3. Advanced Imputation</h4>
+      <pre><code># KNN Imputation
+from sklearn.impute import KNNImputer
+knn_imp = KNNImputer(n_neighbors=3)
+df_imputed = knn_imp.fit_transform(df[['Age','Salary','Score']])
+
+# Iterative Imputer (MICE — Multiple Imputation by Chained Equations)
+from sklearn.experimental import enable_iterative_imputer
+from sklearn.impute import IterativeImputer
+iter_imp = IterativeImputer(max_iter=10, random_state=42)
+df_mice = iter_imp.fit_transform(df[['Age','Salary','Score']])</code></pre>
+
+      <h4>4. Forward/Backward Fill (Time Series)</h4>
+      <pre><code># For time series data
+ts = pd.Series([1, np.nan, 3, np.nan, 5, np.nan])
+ts.fillna(method='ffill')  # Forward fill: [1,1,3,3,5,5]
+ts.fillna(method='bfill')  # Backward fill: [1,3,3,5,5,NaN]
+ts.interpolate()            # Linear interpolation</code></pre>
+
+      <h4>Strategy Selection Guide</h4>
+      <table>
+        <tr><th>Strategy</th><th>Best For</th><th>Pros</th><th>Cons</th></tr>
+        <tr><td>Mean imputation</td><td>Numerical, MCAR</td><td>Simple, fast</td><td>Reduces variance</td></tr>
+        <tr><td>Median imputation</td><td>Skewed data</td><td>Robust to outliers</td><td>Ignores relationships</td></tr>
+        <tr><td>KNN imputation</td><td>MAR, small datasets</td><td>Uses relationships</td><td>Slow on large data</td></tr>
+        <tr><td>MICE</td><td>MAR, complex data</td><td>Accounts for uncertainty</td><td>Computationally expensive</td></tr>
+        <tr><td>Deletion</td><td>MCAR, &lt;5% missing</td><td>Simple, unbiased</td><td>Loses data</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- M3 Q5 -->
+  <div class="q-card" id="m3q5">
+    <div class="q-header">
+      <span class="q-num">M3 Q5</span>
+      <h3>Write a short note on Label Encoding. Explain with an example. Give the limitation of label encoding.</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>What is Label Encoding?</h4>
+      <p>Label encoding converts <strong>categorical text values into integer numbers</strong>. Each unique category is assigned a unique integer value.</p>
+      <p>Used when converting nominal or ordinal categorical data into numerical format that ML algorithms can process.</p>
+
+      <h4>Example</h4>
+      <pre><code>from sklearn.preprocessing import LabelEncoder
+import pandas as pd
+
+# Sample categorical data
+data = pd.DataFrame({
+    'Color': ['Red', 'Blue', 'Green', 'Blue', 'Red', 'Green'],
+    'Size': ['Small', 'Medium', 'Large', 'Small', 'Large', 'Medium'],
+    'Grade': ['A', 'B', 'C', 'A', 'B', 'A']
+})
+
+# Apply Label Encoding
+le = LabelEncoder()
+
+data['Color_encoded'] = le.fit_transform(data['Color'])
+data['Size_encoded'] = le.fit_transform(data['Size'])
+data['Grade_encoded'] = le.fit_transform(data['Grade'])
+
+print(data)</code></pre>
+      <div class="output-box">Color  Size   Grade  Color_enc  Size_enc  Grade_enc
+Red    Small  A      2          2         0
+Blue   Medium B      0          1         1
+Green  Large  C      1          0         2
+Blue   Small  A      0          2         0
+Red    Large  B      2          0         1
+Green  Medium A      1          1         0
+
+Encoding: Blue=0, Green=1, Red=2
+         Large=0, Medium=1, Small=2
+         A=0, B=1, C=2</div>
+
+      <h4>Using Pandas map()</h4>
+      <pre><code># Manual mapping
+color_map = {'Red': 0, 'Blue': 1, 'Green': 2}
+data['Color_manual'] = data['Color'].map(color_map)
+
+# Pandas category codes
+data['Color_cat'] = data['Color'].astype('category').cat.codes</code></pre>
+
+      <h4>Limitations of Label Encoding</h4>
+      <ol>
+        <li><strong>Introduces Ordinal Relationship (False Ordering):</strong> Label encoding assigns numbers like 0, 1, 2 — which implies Blue &lt; Green &lt; Red, a relationship that does NOT exist for nominal data. Algorithms (linear regression, SVM) will interpret this as an order.
+          <pre><code># Problem: algorithm assumes Red(2) > Green(1) > Blue(0)
+# But colors have NO natural order!</code></pre>
+        </li>
+        <li><strong>Misleading Distances:</strong> Distance-based algorithms (KNN, K-Means) will compute distances between categories as if they have magnitude. The encoded value 2 ("Red") is twice 1 ("Green") — meaningless for colors.</li>
+        <li><strong>Not Suitable for High-Cardinality Features:</strong> With many categories (like country names with 200 values), encoding creates large integer ranges that can confuse linear models.</li>
+        <li><strong>Incorrect for Nominal Data:</strong> Only appropriate for <strong>ordinal</strong> categories (Small &lt; Medium &lt; Large) where a natural order exists. For nominal data, use One-Hot Encoding instead.</li>
+      </ol>
+
+      <h4>When to Use Label Encoding vs. One-Hot Encoding</h4>
+      <table>
+        <tr><th>Situation</th><th>Recommended Encoding</th></tr>
+        <tr><td>Ordinal data (Low, Med, High)</td><td>Label Encoding</td></tr>
+        <tr><td>Nominal data (Color, City)</td><td>One-Hot Encoding</td></tr>
+        <tr><td>Tree-based models (RF, XGBoost)</td><td>Label Encoding (OK)</td></tr>
+        <tr><td>Linear/distance models</td><td>One-Hot Encoding</td></tr>
+        <tr><td>High cardinality nominal</td><td>Target/Frequency Encoding</td></tr>
+      </table>
+
+      <h4>Solution: One-Hot Encoding for Nominal Data</h4>
+      <pre><code>import pandas as pd
+encoded = pd.get_dummies(data['Color'], prefix='Color')
+print(encoded)
+# Color_Blue  Color_Green  Color_Red
+#     1           0           0
+#     0           0           1
+#     0           1           0</code></pre>
+    </div>
+  </div>
+
+  <!-- M3 Q6 -->
+  <div class="q-card" id="m3q6">
+    <div class="q-header">
+      <span class="q-num">M3 Q6</span>
+      <h3>Define Feature Scaling. List the common techniques for feature scaling.</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>What is Feature Scaling?</h4>
+      <p>Feature scaling is a preprocessing technique that <strong>standardizes or normalizes the range of independent variables</strong> (features) in a dataset. Without scaling, features with large numerical ranges dominate over features with small ranges, leading to biased model training.</p>
+      <div class="warn-box">
+        <strong>Example Problem:</strong> Age (20-80) vs. Salary (20,000-200,000). Salary will dominate in distance calculations without scaling.
+      </div>
+
+      <h4>Why Scaling is Needed?</h4>
+      <ul>
+        <li>Distance-based algorithms (KNN, SVM, K-Means) are sensitive to feature magnitudes</li>
+        <li>Gradient descent converges faster when features are on similar scales</li>
+        <li>Regularization terms (L1, L2) treat all features equally when scaled</li>
+        <li>PCA and other linear transformations require scaled data</li>
+      </ul>
+
+      <h4>Common Feature Scaling Techniques</h4>
+
+      <h4>1. Min-Max Normalization (Min-Max Scaling)</h4>
+      <p>Scales values to a fixed range, typically [0, 1].</p>
+      <p>Formula: X_scaled = (X - X_min) / (X_max - X_min)</p>
+      <pre><code>from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+X_scaled = scaler.fit_transform(X)</code></pre>
+      <p><strong>Use when:</strong> Neural networks, image processing; data must be in [0,1]</p>
+
+      <h4>2. Standardization (Z-Score Normalization)</h4>
+      <p>Centers data at mean=0 and scales to standard deviation=1.</p>
+      <p>Formula: X_scaled = (X - μ) / σ</p>
+      <pre><code>from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)</code></pre>
+      <p><strong>Use when:</strong> SVM, linear/logistic regression, PCA; assumes Gaussian distribution</p>
+
+      <h4>3. Robust Scaling</h4>
+      <p>Uses median and IQR — robust to outliers.</p>
+      <p>Formula: X_scaled = (X - median) / IQR</p>
+      <pre><code>from sklearn.preprocessing import RobustScaler
+scaler = RobustScaler()
+X_scaled = scaler.fit_transform(X)</code></pre>
+      <p><strong>Use when:</strong> Data has many outliers</p>
+
+      <h4>4. MaxAbs Scaling</h4>
+      <p>Scales by the maximum absolute value. Range: [-1, 1]</p>
+      <pre><code>from sklearn.preprocessing import MaxAbsScaler
+scaler = MaxAbsScaler()
+X_scaled = scaler.fit_transform(X)</code></pre>
+
+      <h4>5. Log Transformation</h4>
+      <pre><code>import numpy as np
+X_log = np.log1p(X)  # log(1+x) handles zeros</code></pre>
+      <p><strong>Use when:</strong> Highly right-skewed data (income, population)</p>
+
+      <h4>6. Power Transformation (Box-Cox / Yeo-Johnson)</h4>
+      <pre><code>from sklearn.preprocessing import PowerTransformer
+pt = PowerTransformer(method='yeo-johnson')
+X_transformed = pt.fit_transform(X)</code></pre>
+
+      <h4>Comparison Table</h4>
+      <table>
+        <tr><th>Method</th><th>Range</th><th>Outlier Robust?</th><th>Best For</th></tr>
+        <tr><td>Min-Max</td><td>[0, 1]</td><td>No</td><td>Neural networks</td></tr>
+        <tr><td>Standardization</td><td>~(-3, 3)</td><td>Moderate</td><td>SVM, PCA, LR</td></tr>
+        <tr><td>Robust</td><td>Varies</td><td>Yes</td><td>Data with outliers</td></tr>
+        <tr><td>MaxAbs</td><td>[-1, 1]</td><td>No</td><td>Sparse data</td></tr>
+        <tr><td>Log Transform</td><td>Varies</td><td>Yes</td><td>Skewed data</td></tr>
+      </table>
+
+      <h4>Algorithms that Need Scaling</h4>
+      <p><strong>Yes — Scale:</strong> KNN, SVM, K-Means, Neural Networks, PCA, Logistic Regression, Linear Regression</p>
+      <p><strong>No — Don't Need Scaling:</strong> Decision Trees, Random Forest, XGBoost, Naive Bayes</p>
+    </div>
+  </div>
+
+  <!-- M3 Q10 -->
+  <div class="q-card" id="m3q10">
+    <div class="q-header">
+      <span class="q-num">M3 Q10</span>
+      <h3>What do you mean by Dimensionality Reduction? What are the approaches to dimensionality reduction?</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>What is Dimensionality Reduction?</h4>
+      <p>Dimensionality reduction is the process of <strong>reducing the number of features (dimensions)</strong> in a dataset while retaining as much useful information as possible. High-dimensional data suffers from the "curse of dimensionality" — models become less accurate and more complex as the number of features grows.</p>
+
+      <h4>Why Dimensionality Reduction?</h4>
+      <ul>
+        <li><strong>Curse of Dimensionality:</strong> In high dimensions, data becomes sparse, making ML algorithms ineffective</li>
+        <li><strong>Remove Redundant Features:</strong> Highly correlated features provide duplicate information</li>
+        <li><strong>Reduce Overfitting:</strong> Fewer features → simpler model → better generalization</li>
+        <li><strong>Speed Up Training:</strong> Less data → faster computation</li>
+        <li><strong>Visualization:</strong> Reduce to 2D/3D for visual inspection</li>
+        <li><strong>Memory Efficiency:</strong> Less storage required</li>
+      </ul>
+
+      <h4>Approaches to Dimensionality Reduction</h4>
+
+      <h4>A. Feature Selection</h4>
+      <p>Select a <strong>subset of original features</strong> without transformation.</p>
+      <ol>
+        <li><strong>Filter Methods:</strong> Select based on statistical measures (correlation, chi-square, mutual information). Fast, model-independent.
+          <pre><code>from sklearn.feature_selection import SelectKBest, f_classif
+selector = SelectKBest(f_classif, k=5)
+X_selected = selector.fit_transform(X, y)</code></pre>
+        </li>
+        <li><strong>Wrapper Methods:</strong> Use a model to evaluate feature subsets (RFE — Recursive Feature Elimination).
+          <pre><code>from sklearn.feature_selection import RFE
+from sklearn.linear_model import LogisticRegression
+rfe = RFE(LogisticRegression(), n_features_to_select=5)
+X_selected = rfe.fit_transform(X, y)</code></pre>
+        </li>
+        <li><strong>Embedded Methods:</strong> Feature selection happens during model training (L1 regularization, Random Forest feature importance).</li>
+      </ol>
+
+      <h4>B. Feature Extraction</h4>
+      <p>Transform original features into a <strong>new, lower-dimensional space</strong>.</p>
+      <ol>
+        <li><strong>PCA (Principal Component Analysis):</strong> Linear technique that finds orthogonal directions of maximum variance.
+          <pre><code>from sklearn.decomposition import PCA
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X)
+print(pca.explained_variance_ratio_)</code></pre>
+        </li>
+        <li><strong>t-SNE (t-Distributed Stochastic Neighbor Embedding):</strong> Non-linear; excellent for 2D/3D visualization of high-dimensional data.</li>
+        <li><strong>UMAP:</strong> Fast non-linear dimensionality reduction; preserves both local and global structure.</li>
+        <li><strong>LDA (Linear Discriminant Analysis):</strong> Supervised; maximizes class separability.</li>
+        <li><strong>Autoencoders:</strong> Neural network-based; learns compressed representations.</li>
+        <li><strong>SVD (Singular Value Decomposition):</strong> Used in collaborative filtering and text analysis (LSA).</li>
+      </ol>
+
+      <h4>Comparison: Selection vs. Extraction</h4>
+      <table>
+        <tr><th>Aspect</th><th>Feature Selection</th><th>Feature Extraction</th></tr>
+        <tr><td>Original features</td><td>Preserved (subset)</td><td>Transformed (new features)</td></tr>
+        <tr><td>Interpretability</td><td>High</td><td>Low (new components)</td></tr>
+        <tr><td>Technique</td><td>Filter, Wrapper, Embedded</td><td>PCA, t-SNE, Autoencoder</td></tr>
+        <tr><td>Information loss</td><td>Less</td><td>Some (acceptable)</td></tr>
+        <tr><td>Use case</td><td>When original features are important</td><td>When dimensionality is very high</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- M3 Q14 -->
+  <div class="q-card" id="m3q14">
+    <div class="q-header">
+      <span class="q-num">M3 Q14</span>
+      <h3>Write a short note on Principal Component Analysis (PCA)</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Introduction</h4>
+      <p>Principal Component Analysis (PCA) is an <strong>unsupervised linear dimensionality reduction</strong> technique that transforms a high-dimensional dataset into a lower-dimensional space by finding new axes (Principal Components) that capture maximum variance in the data.</p>
+
+      <h4>Intuition</h4>
+      <p>PCA finds the directions (principal components) in which the data varies the most. PC1 captures the most variance, PC2 captures the second most (orthogonal to PC1), and so on.</p>
+
+      <h4>Steps of PCA</h4>
+      <ol>
+        <li><strong>Standardize the data:</strong> Mean=0, SD=1 for all features</li>
+        <li><strong>Compute Covariance Matrix:</strong> Shows relationships between all feature pairs</li>
+        <li><strong>Compute Eigenvalues and Eigenvectors:</strong> Eigenvalues indicate variance; eigenvectors indicate direction</li>
+        <li><strong>Sort by Eigenvalue:</strong> Most important components first</li>
+        <li><strong>Select Top k Components</strong></li>
+        <li><strong>Transform data</strong> to new k-dimensional space</li>
+      </ol>
+
+      <h4>Mathematical Foundation</h4>
+      <div class="highlight-box">
+        <p>Covariance Matrix: C = (1/n) × Xᵀ × X</p>
+        <p>Eigendecomposition: C × v = λ × v</p>
+        <p>Explained Variance Ratio = λᵢ / Σλ</p>
+        <p>Projection: X_pca = X × V (top k eigenvectors)</p>
+      </div>
+
+      <h4>Python Implementation</h4>
+      <pre><code>import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+from sklearn.datasets import load_iris
+
+# Load data
+iris = load_iris()
+X = iris.data
+y = iris.target
+
+# Step 1: Standardize
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Step 2: Apply PCA
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X_scaled)
+
+# Explained Variance
+print("Explained variance ratio:", pca.explained_variance_ratio_)
+print("Total variance retained:", sum(pca.explained_variance_ratio_))
+# Explained variance ratio: [0.729 0.228]
+# Total variance retained: 0.977 (97.7%)
+
+# Step 3: Visualize
+colors = ['red', 'green', 'blue']
+for i, color in enumerate(colors):
+    plt.scatter(X_pca[y==i, 0], X_pca[y==i, 1],
+                color=color, label=iris.target_names[i])
+plt.xlabel('PC1'); plt.ylabel('PC2')
+plt.title('PCA of Iris Dataset (2D)')
+plt.legend(); plt.show()
+
+# Scree Plot (Elbow method)
+pca_full = PCA()
+pca_full.fit(X_scaled)
+plt.plot(np.cumsum(pca_full.explained_variance_ratio_))
+plt.xlabel('Number of Components')
+plt.ylabel('Cumulative Variance')
+plt.title('Scree Plot')
+plt.axhline(y=0.95, linestyle='--', color='red')
+plt.show()</code></pre>
+
+      <h4>Choosing Number of Components</h4>
+      <ul>
+        <li>Select components that explain <strong>≥ 95%</strong> of variance</li>
+        <li>Use the "elbow" in the scree plot</li>
+        <li>Reduce to 2-3 for visualization purposes</li>
+      </ul>
+
+      <h4>Applications of PCA</h4>
+      <ul>
+        <li>Face recognition (Eigenfaces)</li>
+        <li>Image compression</li>
+        <li>Noise reduction</li>
+        <li>Preprocessing for ML (remove multicollinearity)</li>
+        <li>Gene expression analysis in bioinformatics</li>
+      </ul>
+
+      <h4>Limitations of PCA</h4>
+      <ul>
+        <li>Linear only — cannot capture non-linear relationships (use kernel PCA)</li>
+        <li>Components are not interpretable — they are linear combinations</li>
+        <li>Sensitive to outliers</li>
+        <li>Requires feature scaling before application</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- M3 Q16 -->
+  <div class="q-card" id="m3q16">
+    <div class="q-header">
+      <span class="q-num">M3 Q16</span>
+      <h3>What is Anomaly Detection? How to do it?</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>What is Anomaly Detection?</h4>
+      <p>Anomaly detection (also called <strong>outlier detection</strong>) is the process of identifying data points, events, or observations that deviate significantly from the expected pattern or the majority of data. These anomalous points are called <strong>outliers, anomalies, or novelties</strong>.</p>
+
+      <h4>Types of Anomalies</h4>
+      <ul>
+        <li><strong>Point Anomalies:</strong> A single data point differs from the rest (e.g., a $10,000 transaction when average is $50)</li>
+        <li><strong>Contextual Anomalies:</strong> A point is abnormal only in a specific context (e.g., 35°C in winter is anomalous, but normal in summer)</li>
+        <li><strong>Collective Anomalies:</strong> A group of related points that together form an anomaly (e.g., a sequence of unusually low ECG readings)</li>
+      </ul>
+
+      <h4>Applications</h4>
+      <ul>
+        <li>Credit card fraud detection</li>
+        <li>Network intrusion detection</li>
+        <li>Industrial equipment failure prediction</li>
+        <li>Medical diagnosis (unusual lab values)</li>
+        <li>Quality control in manufacturing</li>
+      </ul>
+
+      <h4>Methods for Anomaly Detection</h4>
+
+      <h4>1. Statistical Methods</h4>
+      <pre><code>import numpy as np
+import pandas as pd
+
+data = [15, 18, 14, 16, 17, 15, 200, 16, 15, 18]
+mean = np.mean(data); std = np.std(data)
+threshold = 3  # 3-sigma rule
+
+anomalies = [x for x in data if abs(x - mean) > threshold * std]
+print("Anomalies:", anomalies)  # [200]
+
+# IQR Method
+Q1 = np.percentile(data, 25)
+Q3 = np.percentile(data, 75)
+IQR = Q3 - Q1
+lower = Q1 - 1.5 * IQR
+upper = Q3 + 1.5 * IQR
+outliers = [x for x in data if x < lower or x > upper]</code></pre>
+
+      <h4>2. Isolation Forest</h4>
+      <pre><code>from sklearn.ensemble import IsolationForest
+import numpy as np
+
+X = np.random.randn(100, 2)
+X = np.r_[X, [[5, 5], [4, 4], [-5, -5]]]  # Add outliers
+
+clf = IsolationForest(contamination=0.05, random_state=42)
+y_pred = clf.fit_predict(X)
+# y_pred: 1 = normal, -1 = anomaly
+
+outliers = X[y_pred == -1]
+print("Detected outliers:", outliers)</code></pre>
+
+      <h4>3. One-Class SVM</h4>
+      <pre><code>from sklearn.svm import OneClassSVM
+oc_svm = OneClassSVM(nu=0.05, kernel='rbf', gamma='scale')
+oc_svm.fit(X_train)  # Train on normal data only
+predictions = oc_svm.predict(X_test)  # 1=normal, -1=anomaly</code></pre>
+
+      <h4>4. Autoencoders (Deep Learning)</h4>
+      <p>Train on normal data. Anomalies have high reconstruction error since the model hasn't seen them.</p>
+
+      <h4>5. Local Outlier Factor (LOF)</h4>
+      <pre><code>from sklearn.neighbors import LocalOutlierFactor
+lof = LocalOutlierFactor(n_neighbors=20, contamination=0.05)
+y_pred = lof.fit_predict(X)</code></pre>
+
+      <h4>Method Comparison</h4>
+      <table>
+        <tr><th>Method</th><th>Type</th><th>Best For</th></tr>
+        <tr><td>Z-Score / IQR</td><td>Statistical</td><td>Simple univariate data</td></tr>
+        <tr><td>Isolation Forest</td><td>Ensemble</td><td>High-dimensional data</td></tr>
+        <tr><td>One-Class SVM</td><td>Boundary</td><td>Known normal class</td></tr>
+        <tr><td>LOF</td><td>Density</td><td>Local density anomalies</td></tr>
+        <tr><td>Autoencoder</td><td>Deep Learning</td><td>Complex patterns</td></tr>
+      </table>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===================== MODULE 4 ===================== -->
+<section class="module-section" id="module4">
+  <div class="module-header m4-header">
+    <div class="module-num">04</div>
+    <div>
+      <h2>Module 4 — ML Algorithms</h2>
+      <p style="color:#8b949e;margin-top:4px;">Regression, Classification, Evaluation, SVM, Naive Bayes, Random Forest, KNN</p>
+    </div>
+  </div>
+
+  <!-- M4 Q1 -->
+  <div class="q-card" id="m4q1">
+    <div class="q-header">
+      <span class="q-num">M4 Q1</span>
+      <h3>What is Regression? Explain the types of regression and purpose of regression.</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>What is Regression?</h4>
+      <p>Regression is a <strong>supervised learning technique</strong> used to predict a <strong>continuous numerical output</strong> based on one or more input features. It models the relationship between independent variables (predictors) and a dependent variable (target).</p>
+      <p><strong>Purpose:</strong> To find the best-fit mathematical function that describes how Y (target) changes with X (features), enabling prediction on new unseen data.</p>
+
+      <h4>Types of Regression</h4>
+
+      <h4>1. Simple Linear Regression</h4>
+      <p>One independent variable, one dependent variable. Fits a straight line.</p>
+      <p>Equation: Y = β₀ + β₁X + ε</p>
+      <pre><code>from sklearn.linear_model import LinearRegression
+import numpy as np
+
+X = np.array([[1],[2],[3],[4],[5]])
+y = np.array([2.1, 3.9, 6.2, 7.8, 10.1])
+model = LinearRegression()
+model.fit(X, y)
+print(f"Slope: {model.coef_[0]:.2f}")      # ~2.0
+print(f"Intercept: {model.intercept_:.2f}") # ~0.1
+print(f"Predict X=6: {model.predict([[6]])[0]:.2f}")</code></pre>
+
+      <h4>2. Multiple Linear Regression</h4>
+      <p>Multiple independent variables. Equation: Y = β₀ + β₁X₁ + β₂X₂ + ... + βₙXₙ + ε</p>
+      <pre><code># House price prediction
+# Features: size, bedrooms, age, location_score
+from sklearn.linear_model import LinearRegression
+model = LinearRegression()
+model.fit(X_train, y_train)  # X has multiple columns</code></pre>
+
+      <h4>3. Polynomial Regression</h4>
+      <p>Fits a polynomial curve to non-linear data.</p>
+      <pre><code>from sklearn.preprocessing import PolynomialFeatures
+poly = PolynomialFeatures(degree=2)
+X_poly = poly.fit_transform(X)
+model = LinearRegression()
+model.fit(X_poly, y)</code></pre>
+
+      <h4>4. Ridge Regression (L2 Regularization)</h4>
+      <p>Adds L2 penalty to prevent overfitting: Loss = RSS + α Σβᵢ²</p>
+      <pre><code>from sklearn.linear_model import Ridge
+ridge = Ridge(alpha=1.0)
+ridge.fit(X_train, y_train)</code></pre>
+
+      <h4>5. Lasso Regression (L1 Regularization)</h4>
+      <p>Adds L1 penalty; can reduce coefficients to zero (feature selection): Loss = RSS + α Σ|βᵢ|</p>
+      <pre><code>from sklearn.linear_model import Lasso
+lasso = Lasso(alpha=0.1)
+lasso.fit(X_train, y_train)</code></pre>
+
+      <h4>6. Logistic Regression</h4>
+      <p>Used for <strong>binary classification</strong> (not truly regression). Uses sigmoid function to output probability.</p>
+      <pre><code>from sklearn.linear_model import LogisticRegression
+model = LogisticRegression()
+model.fit(X_train, y_train)   # y is 0 or 1</code></pre>
+
+      <h4>7. Other Types</h4>
+      <ul>
+        <li><strong>ElasticNet:</strong> Combines L1 and L2 regularization</li>
+        <li><strong>Stepwise Regression:</strong> Feature selection during regression</li>
+        <li><strong>SVR (Support Vector Regression):</strong> Uses SVM for regression</li>
+        <li><strong>Decision Tree Regression:</strong> Tree-based continuous prediction</li>
+      </ul>
+
+      <h4>Summary Table</h4>
+      <table>
+        <tr><th>Type</th><th>Equation</th><th>Use Case</th></tr>
+        <tr><td>Simple Linear</td><td>Y = β₀ + β₁X</td><td>1 predictor, linear data</td></tr>
+        <tr><td>Multiple Linear</td><td>Y = β₀ + Σβᵢxᵢ</td><td>Multiple predictors</td></tr>
+        <tr><td>Polynomial</td><td>Y = β₀ + β₁X + β₂X²</td><td>Non-linear data</td></tr>
+        <tr><td>Ridge</td><td>Linear + L2 penalty</td><td>Multicollinearity</td></tr>
+        <tr><td>Lasso</td><td>Linear + L1 penalty</td><td>Feature selection</td></tr>
+        <tr><td>Logistic</td><td>P(Y=1) = sigmoid(Xβ)</td><td>Binary classification</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- M4 Q2 -->
+  <div class="q-card" id="m4q2">
+    <div class="q-header">
+      <span class="q-num">M4 Q2</span>
+      <h3>Elaborate the various Evaluation Metrics in ML</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>A. Classification Metrics</h4>
+
+      <h4>Confusion Matrix Foundation</h4>
+      <div class="diagram">                 Predicted
+                  Positive   Negative
+Actual Positive |    TP    |    FN   |
+       Negative |    FP    |    TN   |
+
+TP = True Positive  (correctly predicted positive)
+TN = True Negative  (correctly predicted negative)
+FP = False Positive (predicted positive, actually negative) — Type I Error
+FN = False Negative (predicted negative, actually positive) — Type II Error</div>
+
+      <h4>1. Accuracy</h4>
+      <p>Accuracy = (TP + TN) / (TP + TN + FP + FN)</p>
+      <p><em>Use when classes are balanced. Misleading for imbalanced datasets.</em></p>
+
+      <h4>2. Precision</h4>
+      <p>Precision = TP / (TP + FP)</p>
+      <p><em>"Of all predicted positives, how many are actually positive?" Use when FP cost is high (spam filter).</em></p>
+
+      <h4>3. Recall (Sensitivity)</h4>
+      <p>Recall = TP / (TP + FN)</p>
+      <p><em>"Of all actual positives, how many did we correctly identify?" Use when FN cost is high (cancer detection).</em></p>
+
+      <h4>4. F1-Score</h4>
+      <p>F1 = 2 × (Precision × Recall) / (Precision + Recall)</p>
+      <p><em>Harmonic mean of precision and recall. Best for imbalanced datasets.</em></p>
+
+      <h4>5. Specificity</h4>
+      <p>Specificity = TN / (TN + FP)</p>
+      <p><em>"Of all actual negatives, how many did we correctly identify?"</em></p>
+
+      <h4>6. AUC-ROC</h4>
+      <p>ROC curve plots TPR (Recall) vs. FPR at various thresholds. AUC = Area Under Curve. AUC=1 is perfect; AUC=0.5 is random.</p>
+
+      <pre><code>from sklearn.metrics import (accuracy_score, precision_score,
+    recall_score, f1_score, roc_auc_score, confusion_matrix)
+
+y_true = [1, 0, 1, 1, 0, 1, 0, 0, 1, 0]
+y_pred = [1, 0, 1, 0, 0, 1, 1, 0, 1, 0]
+
+print(f"Accuracy:  {accuracy_score(y_true, y_pred):.2f}")
+print(f"Precision: {precision_score(y_true, y_pred):.2f}")
+print(f"Recall:    {recall_score(y_true, y_pred):.2f}")
+print(f"F1-Score:  {f1_score(y_true, y_pred):.2f}")
+print(confusion_matrix(y_true, y_pred))</code></pre>
+
+      <h4>B. Regression Metrics</h4>
+      <table>
+        <tr><th>Metric</th><th>Formula</th><th>Description</th></tr>
+        <tr><td>MAE</td><td>Σ|y - ŷ| / n</td><td>Mean absolute error; robust to outliers</td></tr>
+        <tr><td>MSE</td><td>Σ(y - ŷ)² / n</td><td>Penalizes large errors more</td></tr>
+        <tr><td>RMSE</td><td>√MSE</td><td>Same units as target; most common</td></tr>
+        <tr><td>R² Score</td><td>1 - SS_res/SS_tot</td><td>% variance explained; R²=1 is perfect</td></tr>
+        <tr><td>MAPE</td><td>Σ|y-ŷ|/|y| × 100%</td><td>Percentage error</td></tr>
+      </table>
+
+      <pre><code>from sklearn.metrics import (mean_absolute_error, mean_squared_error,
+                              r2_score)
+import numpy as np
+
+y_true = [3, 5, 2.5, 7]
+y_pred = [2.5, 5, 4, 8]
+
+print(f"MAE:  {mean_absolute_error(y_true, y_pred):.2f}")
+print(f"MSE:  {mean_squared_error(y_true, y_pred):.2f}")
+print(f"RMSE: {np.sqrt(mean_squared_error(y_true, y_pred)):.2f}")
+print(f"R²:   {r2_score(y_true, y_pred):.2f}")</code></pre>
+    </div>
+  </div>
+
+  <!-- M4 Q7 -->
+  <div class="q-card" id="m4q7">
+    <div class="q-header">
+      <span class="q-num">M4 Q7</span>
+      <h3>Briefly explain about the Confusion Matrix. Give an example.</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>What is a Confusion Matrix?</h4>
+      <p>A confusion matrix is a <strong>table layout that visualizes the performance of a classification model</strong> by comparing actual labels vs. predicted labels. It shows not just overall accuracy but WHERE the model makes mistakes.</p>
+
+      <h4>Structure (Binary Classification)</h4>
+      <table>
+        <tr><th></th><th>Predicted Positive</th><th>Predicted Negative</th></tr>
+        <tr><td><strong>Actual Positive</strong></td><td>TP (True Positive)</td><td>FN (False Negative) — Miss</td></tr>
+        <tr><td><strong>Actual Negative</strong></td><td>FP (False Positive) — False Alarm</td><td>TN (True Negative)</td></tr>
+      </table>
+
+      <h4>Example — Email Spam Detection</h4>
+      <pre><code>from sklearn.metrics import confusion_matrix, classification_report
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Actual vs predicted spam classification
+y_actual = [1,0,1,1,0,1,0,1,0,0,1,0,1,0,1]
+y_pred   = [1,0,1,0,0,1,1,1,0,0,1,0,0,0,1]
+# 1 = Spam, 0 = Not Spam
+
+cm = confusion_matrix(y_actual, y_pred)
+print("Confusion Matrix:\n", cm)
+
+# Visualize
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
+            xticklabels=['Not Spam','Spam'],
+            yticklabels=['Not Spam','Spam'])
+plt.xlabel('Predicted'); plt.ylabel('Actual')
+plt.title('Confusion Matrix — Spam Detection')
+plt.show()
+
+print(classification_report(y_actual, y_pred,
+      target_names=['Not Spam', 'Spam']))</code></pre>
+
+      <h4>Computed Values</h4>
+      <table>
+        <tr><th>Metric</th><th>Formula</th><th>Value</th><th>Meaning</th></tr>
+        <tr><td>Accuracy</td><td>(TP+TN)/(Total)</td><td>87%</td><td>Overall correctness</td></tr>
+        <tr><td>Precision</td><td>TP/(TP+FP)</td><td>86%</td><td>Spam precision</td></tr>
+        <tr><td>Recall</td><td>TP/(TP+FN)</td><td>86%</td><td>Spam caught</td></tr>
+        <tr><td>F1</td><td>Harmonic mean</td><td>86%</td><td>Balanced measure</td></tr>
+        <tr><td>Specificity</td><td>TN/(TN+FP)</td><td>86%</td><td>Non-spam correct</td></tr>
+      </table>
+
+      <h4>Multi-class Confusion Matrix</h4>
+      <pre><code>from sklearn.datasets import load_iris
+from sklearn.tree import DecisionTreeClassifier
+
+iris = load_iris()
+X, y = iris.data, iris.target
+clf = DecisionTreeClassifier(random_state=42)
+clf.fit(X, y)
+y_pred = clf.predict(X)
+
+cm = confusion_matrix(y, y_pred)
+sns.heatmap(cm, annot=True, fmt='d', cmap='YlOrRd',
+            xticklabels=iris.target_names,
+            yticklabels=iris.target_names)
+plt.show()</code></pre>
+
+      <h4>Reading the Matrix</h4>
+      <ul>
+        <li><strong>Diagonal elements</strong> = correctly classified instances</li>
+        <li><strong>Off-diagonal elements</strong> = misclassifications</li>
+        <li><strong>Row sum</strong> = total actual instances per class</li>
+        <li><strong>Column sum</strong> = total predicted instances per class</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- M4 Q8/9/10 -->
+  <div class="q-card" id="m4q8">
+    <div class="q-header">
+      <span class="q-num">M4 Q8-10</span>
+      <h3>K-Fold Cross Validation — Explain in detail</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>What is K-Fold Cross Validation?</h4>
+      <p>K-Fold Cross Validation is a <strong>model evaluation technique</strong> that splits the dataset into K equal folds, trains the model K times (each time using K-1 folds for training and 1 fold for validation), and averages the results. This provides a more robust estimate of model performance than a single train-test split.</p>
+
+      <h4>Process</h4>
+      <div class="diagram">K=5 Example (100 samples):
+
+Fold 1: [TEST |TRAIN|TRAIN|TRAIN|TRAIN] → Score1
+Fold 2: [TRAIN| TEST|TRAIN|TRAIN|TRAIN] → Score2
+Fold 3: [TRAIN|TRAIN| TEST|TRAIN|TRAIN] → Score3
+Fold 4: [TRAIN|TRAIN|TRAIN| TEST|TRAIN] → Score4
+Fold 5: [TRAIN|TRAIN|TRAIN|TRAIN| TEST] → Score5
+
+Final Score = mean(Score1, Score2, Score3, Score4, Score5)</div>
+
+      <h4>Implementation</h4>
+      <pre><code>from sklearn.model_selection import KFold, cross_val_score
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import load_iris
+import numpy as np
+
+iris = load_iris()
+X, y = iris.data, iris.target
+
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+
+# Basic K-Fold
+kf = KFold(n_splits=5, shuffle=True, random_state=42)
+scores = cross_val_score(model, X, y, cv=kf, scoring='accuracy')
+
+print(f"Scores: {scores}")
+print(f"Mean Accuracy: {scores.mean():.4f} ± {scores.std():.4f}")
+
+# Stratified K-Fold (maintains class proportions)
+from sklearn.model_selection import StratifiedKFold
+skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+scores_s = cross_val_score(model, X, y, cv=skf, scoring='accuracy')
+print(f"Stratified CV Score: {scores_s.mean():.4f}")</code></pre>
+
+      <h4>Why Use Cross-Validation?</h4>
+      <ul>
+        <li>Single train-test split can be biased depending on random split</li>
+        <li>Every sample is used for testing exactly once</li>
+        <li>Provides variance estimate of model performance</li>
+        <li>Detects overfitting effectively</li>
+        <li>Especially important for small datasets</li>
+      </ul>
+
+      <h4>Choosing K</h4>
+      <table>
+        <tr><th>K Value</th><th>Effect</th><th>Recommended When</th></tr>
+        <tr><td>K=5</td><td>Balanced bias-variance tradeoff</td><td>General use (most common)</td></tr>
+        <tr><td>K=10</td><td>Lower bias, higher variance</td><td>Standard benchmark</td></tr>
+        <tr><td>K=n (LOOCV)</td><td>Lowest bias, highest variance, very slow</td><td>Tiny datasets</td></tr>
+        <tr><td>K=3</td><td>Higher bias, lower variance, faster</td><td>Large datasets, time constraint</td></tr>
+      </table>
+
+      <h4>When to Use K-Fold CV</h4>
+      <ul>
+        <li>Model selection (comparing different algorithms)</li>
+        <li>Hyperparameter tuning</li>
+        <li>Small to medium datasets where a single split wastes data</li>
+        <li>When robust performance estimate is needed for publication/deployment</li>
+      </ul>
+
+      <h4>Variants</h4>
+      <ul>
+        <li><strong>Stratified K-Fold:</strong> Maintains class distribution in each fold (for classification)</li>
+        <li><strong>Leave-One-Out (LOO):</strong> K = n (each sample is a test set)</li>
+        <li><strong>Time Series Split:</strong> Respects temporal order for time series data</li>
+        <li><strong>Group K-Fold:</strong> Ensures same group doesn't appear in train and test</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- M4 Q12 -->
+  <div class="q-card" id="m4q12">
+    <div class="q-header">
+      <span class="q-num">M4 Q12</span>
+      <h3>Explain about Naive Bayes Algorithm</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Introduction</h4>
+      <p>Naive Bayes is a <strong>probabilistic classification algorithm</strong> based on <strong>Bayes' Theorem</strong>. It assumes that all features are <strong>conditionally independent</strong> given the class label — this "naive" assumption simplifies computation enormously while still working well in practice.</p>
+
+      <h4>Bayes' Theorem</h4>
+      <div class="highlight-box">
+        <p>P(Class | Features) = P(Features | Class) × P(Class) / P(Features)</p>
+        <p>Posterior = (Likelihood × Prior) / Evidence</p>
+        <p>Classification: Choose class that maximizes P(Class | Features)</p>
+      </div>
+
+      <h4>Naive Assumption</h4>
+      <p>P(X₁, X₂, ..., Xₙ | C) = P(X₁|C) × P(X₂|C) × ... × P(Xₙ|C)</p>
+      <p>Features are assumed independent — rarely true, but works well empirically.</p>
+
+      <h4>Types of Naive Bayes</h4>
+      <table>
+        <tr><th>Type</th><th>Feature Type</th><th>Use Case</th></tr>
+        <tr><td>GaussianNB</td><td>Continuous, normally distributed</td><td>Flower classification, sensor data</td></tr>
+        <tr><td>MultinomialNB</td><td>Discrete counts</td><td>Text classification (word counts)</td></tr>
+        <tr><td>BernoulliNB</td><td>Binary (0 or 1)</td><td>Text classification (word presence)</td></tr>
+        <tr><td>ComplementNB</td><td>Discrete counts</td><td>Imbalanced text datasets</td></tr>
+      </table>
+
+      <h4>Implementation — Email Spam Classifier</h4>
+      <pre><code>from sklearn.naive_bayes import MultinomialNB, GaussianNB
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, classification_report
+
+# Text classification example
+emails = [
+    "free money win prize now",
+    "meeting tomorrow project deadline",
+    "click here win lottery jackpot",
+    "please review attached report",
+    "congratulations you won million dollars",
+    "team lunch Friday conference room"
+]
+labels = [1, 0, 1, 0, 1, 0]  # 1=Spam, 0=Ham
+
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(emails)
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, labels, test_size=0.3, random_state=42)
+
+nb = MultinomialNB(alpha=1.0)  # alpha: Laplace smoothing
+nb.fit(X_train, y_train)
+y_pred = nb.predict(X_test)
+print(f"Accuracy: {accuracy_score(y_test, y_pred):.2f}")
+print(classification_report(y_test, y_pred))</code></pre>
+
+      <h4>Laplace Smoothing</h4>
+      <p>Addresses zero-probability problem: if a word never appears in training for a class, it would make P=0 for the entire email.</p>
+      <p>P(word|class) = (count + α) / (total + α × V) where V = vocabulary size, α = 1 typically</p>
+
+      <h4>Advantages</h4>
+      <ul>
+        <li>Very fast to train and predict (O(n))</li>
+        <li>Works well with small training data</li>
+        <li>Handles high-dimensional data well (text)</li>
+        <li>Performs well despite naive assumption</li>
+        <li>Easily updated with new data (online learning)</li>
+      </ul>
+
+      <h4>Disadvantages</h4>
+      <ul>
+        <li>Feature independence assumption is rarely valid in reality</li>
+        <li>Zero-frequency problem (requires smoothing)</li>
+        <li>Poor probability estimates (though classification can be good)</li>
+        <li>Not suitable for regression tasks</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- M4 Q13 -->
+  <div class="q-card" id="m4q13">
+    <div class="q-header">
+      <span class="q-num">M4 Q13</span>
+      <h3>Briefly explain (a) Logistic Regression (b) SVM</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>(a) Logistic Regression</h4>
+      <p>Despite its name, Logistic Regression is a <strong>classification algorithm</strong> that predicts the probability of a binary outcome (0 or 1) using the <strong>sigmoid function</strong> to map any real value to a probability [0,1].</p>
+
+      <div class="highlight-box">
+        <p>Sigmoid: σ(z) = 1 / (1 + e⁻ᶻ)</p>
+        <p>z = β₀ + β₁X₁ + β₂X₂ + ... (linear combination)</p>
+        <p>P(Y=1|X) = σ(z)</p>
+        <p>Decision: If P > 0.5 → Class 1; else → Class 0</p>
+      </div>
+
+      <pre><code>from sklearn.linear_model import LogisticRegression
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, roc_auc_score
+
+# Breast cancer classification
+data = load_breast_cancer()
+X_train, X_test, y_train, y_test = train_test_split(
+    data.data, data.target, test_size=0.2, random_state=42)
+
+model = LogisticRegression(max_iter=1000, C=1.0)
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+y_prob = model.predict_proba(X_test)[:, 1]
+
+print(f"Accuracy: {accuracy_score(y_test, y_pred):.4f}")
+print(f"AUC-ROC: {roc_auc_score(y_test, y_prob):.4f}")</code></pre>
+
+      <p><strong>Use cases:</strong> Spam detection, disease diagnosis (cancer/no cancer), customer churn</p>
+      <p><strong>Extensions:</strong> Multinomial Logistic Regression (multi-class); Regularized (Ridge/Lasso logistic)</p>
+
+      <h4>(b) Support Vector Machine (SVM)</h4>
+      <p>SVM is a powerful <strong>classification (and regression) algorithm</strong> that finds the <strong>optimal hyperplane</strong> that maximally separates two classes. The hyperplane is chosen to maximize the <strong>margin</strong> between the closest points of each class (called <strong>support vectors</strong>).</p>
+
+      <div class="diagram">Class A (o)          Class B (+)
+   o  o                    + + +
+     o  o  |  MARGIN  |  + +
+      o    |---HYPERPLANE---|  +
+           margin = 2/||w||</div>
+
+      <h4>Key Concepts</h4>
+      <ul>
+        <li><strong>Support Vectors:</strong> Data points closest to the decision boundary — only these determine the hyperplane</li>
+        <li><strong>Margin:</strong> Distance between the hyperplane and nearest support vectors; SVM maximizes this</li>
+        <li><strong>Kernel Trick:</strong> Maps data to higher dimensions for non-linear separation</li>
+        <li><strong>C parameter:</strong> Regularization — low C = soft margin (more misclassifications allowed); high C = hard margin</li>
+      </ul>
+
+      <h4>SVM Kernels</h4>
+      <table>
+        <tr><th>Kernel</th><th>Formula</th><th>Use Case</th></tr>
+        <tr><td>Linear</td><td>K(x,y) = xᵀy</td><td>Linearly separable data</td></tr>
+        <tr><td>RBF (Gaussian)</td><td>e^(-γ||x-y||²)</td><td>Non-linear; most popular</td></tr>
+        <tr><td>Polynomial</td><td>(xᵀy + c)^d</td><td>Polynomial boundaries</td></tr>
+        <tr><td>Sigmoid</td><td>tanh(αxᵀy + c)</td><td>Neural network-like</td></tr>
+      </table>
+
+      <pre><code>from sklearn.svm import SVC
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_train_s = scaler.fit_transform(X_train)
+X_test_s = scaler.transform(X_test)
+
+svm = SVC(kernel='rbf', C=10, gamma='scale', probability=True)
+svm.fit(X_train_s, y_train)
+y_pred = svm.predict(X_test_s)
+print(f"SVM Accuracy: {accuracy_score(y_test, y_pred):.4f}")</code></pre>
+    </div>
+  </div>
+
+  <!-- M4 Q14-20 -->
+  <div class="q-card" id="m4q14">
+    <div class="q-header">
+      <span class="q-num">M4 Q14-20</span>
+      <h3>Random Forest — Algorithm, Bagging, Advantages, Disadvantages</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>What is Random Forest?</h4>
+      <p>Random Forest is an <strong>ensemble learning method</strong> that builds a large number of decision trees during training and outputs the <strong>class vote (classification)</strong> or <strong>mean prediction (regression)</strong> of all individual trees.</p>
+
+      <h4>Why Random Forest is an Ensemble Method</h4>
+      <p>Random Forest combines the predictions of multiple trees to achieve better generalization than any single tree. This is the core idea of ensemble learning: <em>"Wisdom of the crowd."</em> Multiple weak learners → one strong learner.</p>
+
+      <h4>Bootstrap Aggregation (Bagging)</h4>
+      <p>Bagging is the technique underlying Random Forest:</p>
+      <ol>
+        <li><strong>Bootstrap:</strong> For each tree, randomly sample n data points WITH replacement (bootstrap sample). Each sample is ~63% of original data.</li>
+        <li><strong>Train:</strong> Train a decision tree on each bootstrap sample.</li>
+        <li><strong>Aggregate (Voting):</strong> Combine all trees' predictions:
+          <ul>
+            <li>Classification: Majority vote</li>
+            <li>Regression: Mean of predictions</li>
+          </ul>
+        </li>
+      </ol>
+      <p>The extra trick in Random Forest: At each node split, only a <strong>random subset of m features</strong> (typically √total_features for classification) is considered. This decorrelates trees, reducing variance further.</p>
+
+      <h4>Algorithm (Working Process)</h4>
+      <ol>
+        <li>Select number of trees (n_estimators)</li>
+        <li>For each tree:
+          <ul>
+            <li>Create bootstrap sample of training data</li>
+            <li>Grow decision tree; at each split, randomly select m features</li>
+            <li>Split on best feature among the m selected (maximize information gain/Gini)</li>
+            <li>Grow tree to full depth (no pruning)</li>
+          </ul>
+        </li>
+        <li>For prediction: pass test sample through all trees, aggregate results</li>
+      </ol>
+
+      <h4>Implementation</h4>
+      <pre><code>from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+import matplotlib.pyplot as plt
+import numpy as np
+
+iris = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(
+    iris.data, iris.target, test_size=0.2, random_state=42)
+
+rf = RandomForestClassifier(
+    n_estimators=100,     # Number of trees
+    max_features='sqrt',  # Features per split = sqrt(total)
+    max_depth=None,       # Fully grown trees
+    min_samples_split=2,
+    bootstrap=True,       # Bootstrap sampling
+    random_state=42,
+    n_jobs=-1             # Use all CPU cores
+)
+rf.fit(X_train, y_train)
+
+y_pred = rf.predict(X_test)
+print(f"Accuracy: {accuracy_score(y_test, y_pred):.4f}")
+
+# Feature Importance
+importances = rf.feature_importances_
+for name, imp in zip(iris.feature_names, importances):
+    print(f"{name}: {imp:.4f}")</code></pre>
+
+      <h4>Advantages of Random Forest</h4>
+      <ol>
+        <li>Very high accuracy — one of the best "out-of-the-box" algorithms</li>
+        <li>Handles missing values and outliers well</li>
+        <li>No need for feature scaling</li>
+        <li>Resistant to overfitting (due to bagging + random features)</li>
+        <li>Provides feature importance rankings</li>
+        <li>Works well on high-dimensional data</li>
+        <li>Handles both classification and regression</li>
+      </ol>
+
+      <h4>Disadvantages of Random Forest</h4>
+      <ol>
+        <li>Computationally expensive (training many trees)</li>
+        <li>Large memory footprint (stores all trees)</li>
+        <li>Slow prediction for real-time applications</li>
+        <li>Less interpretable than a single decision tree</li>
+        <li>Poor performance on very sparse data</li>
+      </ol>
+
+      <h4>Applications</h4>
+      <ul>
+        <li>Fraud detection in banking</li>
+        <li>Medical diagnosis and risk assessment</li>
+        <li>Stock market prediction</li>
+        <li>Remote sensing / satellite image classification</li>
+        <li>E-commerce recommendation systems</li>
+        <li>Drug discovery and genomics</li>
+      </ul>
+
+      <h4>Decision Tree vs. Random Forest</h4>
+      <table>
+        <tr><th>Feature</th><th>Decision Tree</th><th>Random Forest</th></tr>
+        <tr><td>Number of trees</td><td>1</td><td>Many (50-500)</td></tr>
+        <tr><td>Overfitting</td><td>High risk</td><td>Low risk (bagging)</td></tr>
+        <tr><td>Accuracy</td><td>Lower</td><td>Higher</td></tr>
+        <tr><td>Interpretability</td><td>High (visual)</td><td>Low (black box)</td></tr>
+        <tr><td>Speed</td><td>Fast</td><td>Slower</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- M4 Q21 -->
+  <div class="q-card" id="m4q21">
+    <div class="q-header">
+      <span class="q-num">M4 Q21</span>
+      <h3>Describe KNN (K-Nearest Neighbors)</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>What is KNN?</h4>
+      <p>K-Nearest Neighbors (KNN) is a simple, non-parametric, instance-based supervised learning algorithm. It makes predictions based on the K most similar (nearest) training examples to a new data point. KNN is "lazy" — it stores all training data and only does computation at prediction time.</p>
+
+      <h4>How KNN Works</h4>
+      <ol>
+        <li>Choose K (number of neighbors)</li>
+        <li>For a new test point, calculate distance to ALL training points</li>
+        <li>Select K nearest training points</li>
+        <li>For <strong>classification:</strong> Majority vote among K neighbors</li>
+        <li>For <strong>regression:</strong> Mean of K neighbors' values</li>
+      </ol>
+
+      <h4>Distance Metrics</h4>
+      <table>
+        <tr><th>Metric</th><th>Formula</th><th>Use Case</th></tr>
+        <tr><td>Euclidean</td><td>√Σ(xᵢ-yᵢ)²</td><td>Most common (default)</td></tr>
+        <tr><td>Manhattan</td><td>Σ|xᵢ-yᵢ|</td><td>Grid-like spaces</td></tr>
+        <tr><td>Minkowski</td><td>(Σ|xᵢ-yᵢ|^p)^(1/p)</td><td>Generalized</td></tr>
+        <tr><td>Hamming</td><td>% positions differing</td><td>Categorical data</td></tr>
+      </table>
+
+      <h4>Implementation</h4>
+      <pre><code>from sklearn.neighbors import KNeighborsClassifier
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.datasets import load_iris
+import numpy as np
+import matplotlib.pyplot as plt
+
+iris = load_iris()
+X, y = iris.data, iris.target
+
+# Scale features (essential for KNN)
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+X_train, X_test, y_train, y_test = train_test_split(
+    X_scaled, y, test_size=0.2, random_state=42)
+
+# Choose optimal K using cross-validation
+k_scores = []
+for k in range(1, 21):
+    knn = KNeighborsClassifier(n_neighbors=k)
+    scores = cross_val_score(knn, X_train, y_train, cv=5)
+    k_scores.append(scores.mean())
+
+best_k = np.argmax(k_scores) + 1
+print(f"Best K: {best_k}, CV Score: {max(k_scores):.4f}")
+
+# Train with best K
+knn = KNeighborsClassifier(n_neighbors=best_k,
+                            weights='distance',
+                            metric='euclidean')
+knn.fit(X_train, y_train)
+y_pred = knn.predict(X_test)
+
+from sklearn.metrics import accuracy_score
+print(f"Test Accuracy: {accuracy_score(y_test, y_pred):.4f}")</code></pre>
+
+      <h4>Choosing K</h4>
+      <ul>
+        <li><strong>Small K:</strong> Low bias, high variance → overfitting, sensitive to noise</li>
+        <li><strong>Large K:</strong> High bias, low variance → underfitting, smoothing</li>
+        <li>K should be <strong>odd</strong> for binary classification (avoid ties)</li>
+        <li>Rule of thumb: K ≈ √n (square root of training samples)</li>
+        <li>Use cross-validation to find optimal K</li>
+      </ul>
+
+      <h4>Advantages and Disadvantages</h4>
+      <table>
+        <tr><th>Advantages</th><th>Disadvantages</th></tr>
+        <tr><td>Simple, easy to understand</td><td>Slow prediction (O(n) per query)</td></tr>
+        <tr><td>No training phase (lazy learner)</td><td>High memory (stores all data)</td></tr>
+        <tr><td>Naturally handles multi-class</td><td>Sensitive to irrelevant features</td></tr>
+        <tr><td>Non-parametric (no assumptions)</td><td>Requires feature scaling</td></tr>
+        <tr><td>Adapts to new training data easily</td><td>Curse of dimensionality</td></tr>
+      </table>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===================== MODULE 5 ===================== -->
+<section class="module-section" id="module5">
+  <div class="module-header m5-header">
+    <div class="module-num">05</div>
+    <div>
+      <h2>Module 5 — Advanced ML</h2>
+      <p style="color:#8b949e;margin-top:4px;">Clustering, Time Series, Ensemble Methods, ARMA/ARIMA</p>
+    </div>
+  </div>
+
+  <!-- M5 Q1 -->
+  <div class="q-card" id="m5q1">
+    <div class="q-header">
+      <span class="q-num">M5 Q1</span>
+      <h3>Explain about finding similarities using various distance metrics</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Introduction</h4>
+      <p>Distance metrics quantify how similar or dissimilar two data points are. They are fundamental to algorithms like KNN, K-Means, Hierarchical Clustering, and Recommendation Systems.</p>
+
+      <h4>1. Euclidean Distance (L2 Distance)</h4>
+      <p>Straight-line distance in n-dimensional space. Most commonly used.</p>
+      <p>d(x,y) = √(Σ(xᵢ - yᵢ)²)</p>
+      <pre><code>import numpy as np
+from scipy.spatial.distance import euclidean, manhattan, cosine
+
+p1 = np.array([2, 3, 4])
+p2 = np.array([5, 1, 7])
+
+euc = np.sqrt(np.sum((p1 - p2)**2))
+print(f"Euclidean: {euc:.2f}")  # 4.69</code></pre>
+      <p><strong>Use:</strong> Low-dimensional continuous data; assumes all dimensions have equal scale</p>
+
+      <h4>2. Manhattan Distance (L1 / City Block)</h4>
+      <p>Sum of absolute differences — like navigating a city grid.</p>
+      <p>d(x,y) = Σ|xᵢ - yᵢ|</p>
+      <pre><code>man = np.sum(np.abs(p1 - p2))
+print(f"Manhattan: {man:.2f}")  # 8.0</code></pre>
+      <p><strong>Use:</strong> Grid-like spaces, high-dimensional data, robust to outliers</p>
+
+      <h4>3. Minkowski Distance</h4>
+      <p>Generalized form of Euclidean and Manhattan.</p>
+      <p>d(x,y) = (Σ|xᵢ - yᵢ|^p)^(1/p)</p>
+      <ul>
+        <li>p=1 → Manhattan</li>
+        <li>p=2 → Euclidean</li>
+        <li>p=∞ → Chebyshev</li>
+      </ul>
+
+      <h4>4. Cosine Similarity (and Distance)</h4>
+      <p>Measures the angle between two vectors. Ignores magnitude; only direction matters.</p>
+      <p>cosine_sim(x,y) = (x·y) / (||x|| × ||y||)</p>
+      <p>cosine_distance = 1 - cosine_similarity</p>
+      <pre><code>from numpy.linalg import norm
+
+def cosine_similarity(a, b):
+    return np.dot(a, b) / (norm(a) * norm(b))
+
+a = np.array([1, 2, 3])
+b = np.array([2, 4, 6])   # Same direction as a, different magnitude
+print(cosine_similarity(a, b))  # 1.0 (identical direction)</code></pre>
+      <p><strong>Use:</strong> Text analysis, NLP, recommendation systems — when magnitude is not important</p>
+
+      <h4>5. Hamming Distance</h4>
+      <p>Number of positions at which corresponding values differ. For equal-length strings or binary vectors.</p>
+      <pre><code>def hamming(s1, s2):
+    return sum(c1 != c2 for c1, c2 in zip(s1, s2))
+
+print(hamming("karolin", "kathrin"))  # 3
+print(hamming([1,0,1,0], [1,1,0,0])) # 2</code></pre>
+
+      <h4>6. Jaccard Similarity</h4>
+      <p>Ratio of intersection to union. Used for sets.</p>
+      <p>J(A,B) = |A∩B| / |A∪B|</p>
+      <pre><code>def jaccard(A, B):
+    return len(A & B) / len(A | B)
+
+A = {1, 2, 3, 4}
+B = {2, 4, 6, 8}
+print(f"Jaccard: {jaccard(A, B):.2f}")  # 0.33</code></pre>
+      <p><strong>Use:</strong> Document similarity, recommendation systems, clustering binary data</p>
+
+      <h4>7. Mahalanobis Distance</h4>
+      <p>Takes into account correlations between variables and scales by variance. Good for multi-dimensional data.</p>
+      <p>d(x,y) = √((x-y)ᵀ S⁻¹ (x-y)) where S = covariance matrix</p>
+
+      <h4>Distance Metric Comparison</h4>
+      <table>
+        <tr><th>Metric</th><th>Best For</th><th>Sensitive to Scale?</th></tr>
+        <tr><td>Euclidean</td><td>Continuous, low-D</td><td>Yes</td></tr>
+        <tr><td>Manhattan</td><td>High-D, robust</td><td>Yes</td></tr>
+        <tr><td>Cosine</td><td>Text, NLP</td><td>No (direction only)</td></tr>
+        <tr><td>Hamming</td><td>Binary/categorical</td><td>No</td></tr>
+        <tr><td>Jaccard</td><td>Sets, binary</td><td>No</td></tr>
+        <tr><td>Mahalanobis</td><td>Correlated features</td><td>No (normalized)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- M5 Q3 -->
+  <div class="q-card" id="m5q3">
+    <div class="q-header">
+      <span class="q-num">M5 Q3</span>
+      <h3>What is K-Means Clustering? Explain.</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Introduction</h4>
+      <p>K-Means is an <strong>unsupervised clustering algorithm</strong> that partitions n data points into K non-overlapping clusters. Each data point belongs to the cluster with the nearest centroid (cluster center). The algorithm minimizes the Within-Cluster Sum of Squares (WCSS).</p>
+
+      <h4>K-Means Algorithm</h4>
+      <ol>
+        <li><strong>Initialize:</strong> Randomly place K centroids (or use K-Means++ for smart initialization)</li>
+        <li><strong>Assignment Step:</strong> Assign each data point to the nearest centroid (using Euclidean distance)</li>
+        <li><strong>Update Step:</strong> Recompute each centroid as the mean of all assigned points</li>
+        <li><strong>Repeat</strong> steps 2-3 until centroids don't change (convergence) or max iterations reached</li>
+      </ol>
+
+      <h4>Objective Function (WCSS)</h4>
+      <div class="highlight-box">
+        <p>Minimize: J = Σₖ Σᵢ∈Cₖ ||xᵢ - μₖ||²</p>
+        <p>where μₖ = centroid of cluster k, Cₖ = set of points in cluster k</p>
+      </div>
+
+      <h4>Visual Example</h4>
+      <div class="diagram">Iteration 1:      Iteration 2:      Converged:
+ + * o            + * o            + * o
+*+* * oo         *+* * oo         *+* * oo
+  +   o           [C1] [C2]        [C1] [C2]
+*   o o          *   o o          *   o o
+
+(+ = cluster 1 points, o = cluster 2 points, * = centroids)</div>
+
+      <h4>Python Implementation</h4>
+      <pre><code>import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+from sklearn.datasets import make_blobs
+
+# Generate sample data
+X, true_labels = make_blobs(n_samples=300, centers=4,
+                             cluster_std=0.8, random_state=42)
+
+# Scale data
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Elbow Method to find optimal K
+wcss = []
+for k in range(1, 11):
+    km = KMeans(n_clusters=k, init='k-means++',
+                n_init=10, random_state=42)
+    km.fit(X_scaled)
+    wcss.append(km.inertia_)
+
+plt.plot(range(1,11), wcss, 'bo-')
+plt.xlabel('Number of Clusters (K)')
+plt.ylabel('WCSS (Inertia)')
+plt.title('Elbow Method for Optimal K')
+plt.axvline(x=4, linestyle='--', color='red')
+plt.show()
+
+# Apply K-Means with optimal K=4
+kmeans = KMeans(n_clusters=4, init='k-means++', n_init=10, random_state=42)
+kmeans.fit(X_scaled)
+labels = kmeans.labels_
+centroids = kmeans.cluster_centers_
+
+# Visualization
+colors = ['red', 'blue', 'green', 'orange']
+for i in range(4):
+    plt.scatter(X_scaled[labels==i, 0], X_scaled[labels==i, 1],
+                c=colors[i], label=f'Cluster {i+1}', alpha=0.6)
+plt.scatter(centroids[:, 0], centroids[:, 1],
+            c='black', marker='*', s=200, label='Centroids')
+plt.title('K-Means Clustering (K=4)')
+plt.legend(); plt.show()
+
+print(f"Inertia (WCSS): {kmeans.inertia_:.2f}")
+print(f"Silhouette Score: {silhouette_score(X_scaled, labels):.4f}")</code></pre>
+
+      <h4>Choosing K — Elbow Method</h4>
+      <p>Plot WCSS vs K. Look for the "elbow" — the point where adding more clusters gives diminishing returns.</p>
+
+      <h4>Advantages and Disadvantages</h4>
+      <table>
+        <tr><th>Advantages</th><th>Disadvantages</th></tr>
+        <tr><td>Simple and fast (O(nKI))</td><td>Must specify K beforehand</td></tr>
+        <tr><td>Scales to large datasets</td><td>Sensitive to initial centroids</td></tr>
+        <tr><td>Guaranteed convergence</td><td>Assumes spherical clusters</td></tr>
+        <tr><td>Easily interpretable</td><td>Sensitive to outliers</td></tr>
+        <tr><td>Works well with many features</td><td>Fails with non-convex shapes</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- M5 Q4 -->
+  <div class="q-card" id="m5q4">
+    <div class="q-header">
+      <span class="q-num">M5 Q4</span>
+      <h3>What is Hierarchical Clustering? Explain.</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Introduction</h4>
+      <p>Hierarchical Clustering creates a <strong>tree-like hierarchy of clusters</strong> (dendrogram). Unlike K-Means, no prior specification of K is required. There are two approaches: <strong>Agglomerative</strong> (bottom-up) and <strong>Divisive</strong> (top-down).</p>
+
+      <h4>Types</h4>
+      <ol>
+        <li><strong>Agglomerative (AGNES):</strong> Start with each point as its own cluster, merge closest clusters iteratively until one cluster remains. Most common approach.</li>
+        <li><strong>Divisive (DIANA):</strong> Start with all points in one cluster, split recursively until each point is its own cluster.</li>
+      </ol>
+
+      <h4>Agglomerative Algorithm</h4>
+      <pre><code># Step-by-step for 4 points A, B, C, D:
+# 1. Each point is a cluster: {A}, {B}, {C}, {D}
+# 2. Find closest pair (e.g., A and B) → merge: {A,B}, {C}, {D}
+# 3. Find closest cluster → merge: {A,B,C}, {D}
+# 4. Merge remaining: {A,B,C,D}
+# 5. Result is a dendrogram</code></pre>
+
+      <h4>Linkage Criteria (how to measure cluster distance)</h4>
+      <table>
+        <tr><th>Linkage</th><th>Distance Between Clusters</th><th>Property</th></tr>
+        <tr><td>Single (min)</td><td>Min distance between any two points</td><td>Can form elongated clusters</td></tr>
+        <tr><td>Complete (max)</td><td>Max distance between any two points</td><td>Creates compact clusters</td></tr>
+        <tr><td>Average</td><td>Mean distance between all pairs</td><td>Balanced</td></tr>
+        <tr><td>Ward</td><td>Minimize within-cluster variance</td><td>Similar to K-Means; most popular</td></tr>
+        <tr><td>Centroid</td><td>Distance between cluster centroids</td><td>Can cause inversions</td></tr>
+      </table>
+
+      <h4>Dendrogram — Predicting Number of Clusters</h4>
+      <p>Cut the dendrogram at the level where the vertical lines are longest (biggest gap) to determine optimal K.</p>
+      <pre><code>import numpy as np
+import matplotlib.pyplot as plt
+from scipy.cluster.hierarchy import dendrogram, linkage, fcluster
+from sklearn.cluster import AgglomerativeClustering
+from sklearn.datasets import make_blobs
+
+# Generate data
+X, _ = make_blobs(n_samples=50, centers=3, random_state=42)
+
+# Compute linkage matrix
+Z = linkage(X, method='ward')
+
+# Plot dendrogram
+plt.figure(figsize=(12, 5))
+plt.subplot(1,2,1)
+dendrogram(Z, leaf_rotation=90, leaf_font_size=8,
+           color_threshold=5)
+plt.title('Dendrogram (Ward Linkage)')
+plt.xlabel('Sample Index'); plt.ylabel('Distance')
+plt.axhline(y=5, color='red', linestyle='--',
+            label='Cut threshold → 3 clusters')
+plt.legend()
+
+# Extract cluster labels
+labels = fcluster(Z, t=3, criterion='maxclust')
+
+# Sklearn implementation
+plt.subplot(1,2,2)
+model = AgglomerativeClustering(n_clusters=3, linkage='ward')
+cluster_labels = model.fit_predict(X)
+colors = ['red', 'blue', 'green']
+for i, c in enumerate(colors):
+    plt.scatter(X[cluster_labels==i, 0], X[cluster_labels==i, 1],
+                c=c, label=f'Cluster {i+1}', alpha=0.7)
+plt.title('Agglomerative Clustering (K=3)')
+plt.legend()
+plt.tight_layout()
+plt.show()</code></pre>
+
+      <h4>K-Means vs. Hierarchical Clustering</h4>
+      <table>
+        <tr><th>Feature</th><th>K-Means</th><th>Hierarchical</th></tr>
+        <tr><td>K specification</td><td>Required</td><td>Not required</td></tr>
+        <tr><td>Cluster shape</td><td>Spherical</td><td>Any shape</td></tr>
+        <tr><td>Scalability</td><td>Large datasets</td><td>Small-medium datasets</td></tr>
+        <tr><td>Deterministic</td><td>No (random init)</td><td>Yes</td></tr>
+        <tr><td>Result</td><td>Flat clusters</td><td>Hierarchy (dendrogram)</td></tr>
+        <tr><td>Complexity</td><td>O(nKI)</td><td>O(n² log n)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- M5 Q6 -->
+  <div class="q-card" id="m5q6">
+    <div class="q-header">
+      <span class="q-num">M5 Q6</span>
+      <h3>Explain about ARMA and ARIMA Model</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Time Series Overview</h4>
+      <p>A time series is a sequence of data points collected over time (stock prices, temperature, sales). Time series analysis involves building models to understand patterns and forecast future values.</p>
+
+      <h4>ARMA Model (AutoRegressive Moving Average)</h4>
+      <p>ARMA(p, q) combines two components:</p>
+      <ul>
+        <li><strong>AR(p) — AutoRegressive:</strong> The current value depends on p previous values of itself.
+          <p>Yₜ = φ₁Yₜ₋₁ + φ₂Yₜ₋₂ + ... + φₚYₜ₋ₚ + εₜ</p>
+        </li>
+        <li><strong>MA(q) — Moving Average:</strong> The current value depends on q previous error terms.
+          <p>Yₜ = εₜ + θ₁εₜ₋₁ + θ₂εₜ₋₂ + ... + θqεₜ₋q</p>
+        </li>
+      </ul>
+      <p><strong>ARMA(p,q):</strong> Yₜ = φ₁Yₜ₋₁ + ... + φₚYₜ₋ₚ + εₜ + θ₁εₜ₋₁ + ... + θqεₜ₋q</p>
+      <p><strong>Requirement:</strong> ARMA requires the time series to be <strong>stationary</strong> (constant mean and variance).</p>
+
+      <h4>ARIMA Model (AutoRegressive Integrated Moving Average)</h4>
+      <p>ARIMA(p, d, q) extends ARMA by adding <strong>differencing</strong> to handle non-stationary data:</p>
+      <ul>
+        <li><strong>p</strong> = AR order (number of lag observations)</li>
+        <li><strong>d</strong> = degree of differencing (to achieve stationarity)</li>
+        <li><strong>q</strong> = MA order (number of lagged forecast errors)</li>
+      </ul>
+      <p><strong>Differencing (d):</strong> Take d-th difference of series to remove trend/seasonality and achieve stationarity.</p>
+      <p>d=1: ΔYₜ = Yₜ - Yₜ₋₁</p>
+
+      <h4>Steps to Build ARIMA</h4>
+      <ol>
+        <li><strong>Check Stationarity:</strong> ADF (Augmented Dickey-Fuller) test. If p-value &gt; 0.05, series is non-stationary.</li>
+        <li><strong>Make Stationary:</strong> Apply differencing (d=1, 2) until stationary</li>
+        <li><strong>Identify p and q:</strong> Use ACF (AutoCorrelation Function) for q, PACF (Partial ACF) for p</li>
+        <li><strong>Fit Model</strong></li>
+        <li><strong>Validate and Forecast</strong></li>
+      </ol>
+
+      <pre><code>import pandas as pd
+import numpy as np
+from statsmodels.tsa.arima.model import ARIMA
+from statsmodels.tsa.stattools import adfuller
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+import matplotlib.pyplot as plt
+
+# Sample time series data (airline passengers)
+# from statsmodels.datasets import get_rdataset
+# data = get_rdataset('AirPassengers', 'datasets').data['value']
+
+np.random.seed(42)
+dates = pd.date_range('2020-01-01', periods=120, freq='M')
+values = 100 + np.cumsum(np.random.randn(120)) + np.sin(np.arange(120)*0.5)*20
+ts = pd.Series(values, index=dates)
+
+# Step 1: Check stationarity
+result = adfuller(ts)
+print(f"ADF Statistic: {result[0]:.4f}")
+print(f"p-value: {result[1]:.4f}")
+# If p > 0.05, need differencing
+
+# Step 2: Differencing
+ts_diff = ts.diff().dropna()
+result2 = adfuller(ts_diff)
+print(f"After diff - p-value: {result2[1]:.4f}")  # Should be < 0.05
+
+# Step 3: ACF and PACF plots
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12,4))
+plot_acf(ts_diff, lags=20, ax=ax1, title='ACF (for q)')
+plot_pacf(ts_diff, lags=20, ax=ax2, title='PACF (for p)')
+plt.show()
+
+# Step 4: Fit ARIMA(1,1,1)
+model = ARIMA(ts, order=(1, 1, 1))
+result = model.fit()
+print(result.summary())
+
+# Step 5: Forecast
+forecast = result.forecast(steps=12)
+print("12-month forecast:\n", forecast)
+
+# Plot
+plt.figure(figsize=(12,5))
+plt.plot(ts, label='Observed', color='blue')
+plt.plot(pd.date_range(ts.index[-1], periods=13, freq='M')[1:],
+         forecast, label='Forecast', color='red', linestyle='--')
+plt.title('ARIMA(1,1,1) Forecast')
+plt.legend(); plt.grid(True)
+plt.show()</code></pre>
+
+      <h4>ARMA vs. ARIMA</h4>
+      <table>
+        <tr><th>Feature</th><th>ARMA(p,q)</th><th>ARIMA(p,d,q)</th></tr>
+        <tr><td>Stationarity</td><td>Requires stationary data</td><td>Handles non-stationary</td></tr>
+        <tr><td>Differencing</td><td>No differencing</td><td>d-order differencing</td></tr>
+        <tr><td>Parameters</td><td>p, q</td><td>p, d, q</td></tr>
+        <tr><td>Use case</td><td>Stationary time series</td><td>Trending/non-stationary series</td></tr>
+      </table>
+
+      <h4>Extensions</h4>
+      <ul>
+        <li><strong>SARIMA:</strong> Seasonal ARIMA — adds seasonal component (P, D, Q, s)</li>
+        <li><strong>SARIMAX:</strong> With exogenous variables (external predictors)</li>
+        <li><strong>VARIMA:</strong> Vector ARIMA for multivariate time series</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- M5 Q7 -->
+  <div class="q-card" id="m5q7">
+    <div class="q-header">
+      <span class="q-num">M5 Q7</span>
+      <h3>Explain various ensemble methods for improving performance of Machine Learning Algorithms</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>What is Ensemble Learning?</h4>
+      <p>Ensemble methods combine multiple ML models to produce a stronger, more accurate model than any individual model. The key principle: <em>"Wisdom of the crowd"</em> — combining diverse, imperfect learners reduces overall error.</p>
+
+      <div class="highlight-box">
+        <p>Types of errors ensemble methods reduce:</p>
+        <ul>
+          <li><strong>Bias:</strong> Difference between predicted and true value (underfitting)</li>
+          <li><strong>Variance:</strong> Sensitivity to fluctuations in training data (overfitting)</li>
+        </ul>
+      </div>
+
+      <h4>1. Bagging (Bootstrap Aggregating)</h4>
+      <p><strong>Goal:</strong> Reduce variance without increasing bias.</p>
+      <p><strong>How:</strong> Train multiple models on different bootstrap samples of training data, then aggregate predictions by voting (classification) or averaging (regression).</p>
+      <pre><code>from sklearn.ensemble import BaggingClassifier
+from sklearn.tree import DecisionTreeClassifier
+
+bagging = BaggingClassifier(
+    base_estimator=DecisionTreeClassifier(),
+    n_estimators=100,
+    max_samples=0.8,    # 80% bootstrap sample
+    max_features=0.8,
+    bootstrap=True,
+    random_state=42
+)
+bagging.fit(X_train, y_train)
+print(f"Bagging Accuracy: {bagging.score(X_test, y_test):.4f}")</code></pre>
+      <p><strong>Example:</strong> Random Forest is a specialized Bagging of Decision Trees with random feature selection.</p>
+
+      <h4>2. Boosting</h4>
+      <p><strong>Goal:</strong> Reduce bias by sequentially training models, each focusing on errors of the previous.</p>
+      <p>Models are trained <strong>sequentially</strong>; each new model corrects the errors of previous models. Misclassified points get higher weight.</p>
+
+      <h4>AdaBoost (Adaptive Boosting)</h4>
+      <pre><code>from sklearn.ensemble import AdaBoostClassifier
+ada = AdaBoostClassifier(
+    n_estimators=100,
+    learning_rate=0.1,
+    algorithm='SAMME',
+    random_state=42
+)
+ada.fit(X_train, y_train)
+print(f"AdaBoost Accuracy: {ada.score(X_test, y_test):.4f}")</code></pre>
+
+      <h4>Gradient Boosting (GBM)</h4>
+      <pre><code>from sklearn.ensemble import GradientBoostingClassifier
+gbm = GradientBoostingClassifier(
+    n_estimators=200,
+    learning_rate=0.05,
+    max_depth=3,
+    subsample=0.8,
+    random_state=42
+)
+gbm.fit(X_train, y_train)
+print(f"GBM Accuracy: {gbm.score(X_test, y_test):.4f}")</code></pre>
+
+      <h4>XGBoost (Extreme Gradient Boosting)</h4>
+      <pre><code>import xgboost as xgb
+xgb_model = xgb.XGBClassifier(
+    n_estimators=200,
+    max_depth=5,
+    learning_rate=0.05,
+    subsample=0.8,
+    colsample_bytree=0.8,
+    use_label_encoder=False,
+    eval_metric='logloss'
+)
+xgb_model.fit(X_train, y_train)
+print(f"XGBoost Accuracy: {xgb_model.score(X_test, y_test):.4f}")</code></pre>
+
+      <h4>3. Stacking (Stacked Generalization)</h4>
+      <p>Train multiple diverse base models (Level 0), then train a meta-model (Level 1) on their predictions. The meta-model learns the best way to combine base model predictions.</p>
+      <pre><code>from sklearn.ensemble import StackingClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
+from sklearn.neighbors import KNeighborsClassifier
+
+estimators = [
+    ('rf', RandomForestClassifier(n_estimators=100)),
+    ('svm', SVC(probability=True, kernel='rbf')),
+    ('knn', KNeighborsClassifier(n_neighbors=7))
+]
+
+stacking = StackingClassifier(
+    estimators=estimators,
+    final_estimator=LogisticRegression(),  # Meta-model
+    cv=5
+)
+stacking.fit(X_train, y_train)
+print(f"Stacking Accuracy: {stacking.score(X_test, y_test):.4f}")</code></pre>
+
+      <h4>4. Voting</h4>
+      <pre><code>from sklearn.ensemble import VotingClassifier
+
+voting = VotingClassifier(
+    estimators=estimators,
+    voting='soft'   # Use probabilities for soft voting
+)
+voting.fit(X_train, y_train)
+print(f"Voting Accuracy: {voting.score(X_test, y_test):.4f}")</code></pre>
+
+      <h4>Comparison of Ensemble Methods</h4>
+      <table>
+        <tr><th>Method</th><th>Training</th><th>Reduces</th><th>Best Known Algorithm</th></tr>
+        <tr><td>Bagging</td><td>Parallel</td><td>Variance</td><td>Random Forest</td></tr>
+        <tr><td>Boosting</td><td>Sequential</td><td>Bias</td><td>XGBoost, LightGBM</td></tr>
+        <tr><td>Stacking</td><td>Both</td><td>Both</td><td>Custom stacks</td></tr>
+        <tr><td>Voting</td><td>Parallel</td><td>Variance</td><td>Hard/Soft voting</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- M5 Q11-12 -->
+  <div class="q-card" id="m5q11">
+    <div class="q-header">
+      <span class="q-num">M5 Q11-12</span>
+      <h3>Components of Time Series and Purpose of Time Series Analysis</h3>
+      <span class="marks-badge">15 Marks</span>
+    </div>
+    <div class="q-body">
+      <h4>Components of Time Series</h4>
+      <p>A time series can be decomposed into four components:</p>
+
+      <h4>1. Trend (T)</h4>
+      <p>The <strong>long-term upward or downward movement</strong> in data over time. Reflects the underlying growth or decline pattern.</p>
+      <ul>
+        <li><strong>Upward trend:</strong> Population growth, technology adoption</li>
+        <li><strong>Downward trend:</strong> Declining landline use, decreasing product prices</li>
+        <li><strong>No trend:</strong> Temperature around fixed mean</li>
+      </ul>
+
+      <h4>2. Seasonality (S)</h4>
+      <p>Regular, <strong>predictable fluctuations that repeat over fixed periods</strong> (daily, weekly, monthly, yearly).</p>
+      <ul>
+        <li>Ice cream sales peak in summer</li>
+        <li>Retail sales spike in December (Christmas)</li>
+        <li>Traffic peaks during rush hours daily</li>
+      </ul>
+
+      <h4>3. Cyclicity (C)</h4>
+      <p>Long-term <strong>wave-like fluctuations without fixed periods</strong>. Unlike seasonality, cycles don't have a predictable, regular period. Duration is usually &gt;1 year.</p>
+      <ul>
+        <li>Business cycles (economic boom and recession)</li>
+        <li>Housing market cycles</li>
+        <li>Sunspot activity cycles</li>
+      </ul>
+
+      <h4>4. Irregular/Random (I)</h4>
+      <p><strong>Unpredictable, random fluctuations</strong> that remain after removing trend, seasonality, and cyclicity. Also called "noise" or "residuals".</p>
+      <ul>
+        <li>Stock price daily fluctuations</li>
+        <li>Weather anomalies</li>
+        <li>One-time events (COVID-19 impact)</li>
+      </ul>
+
+      <h4>Decomposition Models</h4>
+      <p><strong>Additive:</strong> Y = T + S + C + I (when components don't interact; fluctuations constant)</p>
+      <p><strong>Multiplicative:</strong> Y = T × S × C × I (when seasonal effects proportional to trend level)</p>
+
+      <pre><code>from statsmodels.tsa.seasonal import seasonal_decompose
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+# Sample monthly data
+dates = pd.date_range('2018-01-01', periods=60, freq='M')
+trend = np.linspace(100, 200, 60)
+seasonal = 20 * np.sin(2 * np.pi * np.arange(60) / 12)
+noise = np.random.randn(60) * 5
+ts = pd.Series(trend + seasonal + noise, index=dates)
+
+# Decompose
+decomposition = seasonal_decompose(ts, model='additive', period=12)
+fig = decomposition.plot()
+fig.set_size_inches(12, 8)
+plt.tight_layout()
+plt.show()</code></pre>
+
+      <h4>Purpose of Time Series Analysis</h4>
+      <ol>
+        <li><strong>Forecasting / Prediction:</strong> Predict future values (sales, stock prices, demand). Models: ARIMA, SARIMA, Prophet, LSTM</li>
+        <li><strong>Pattern Recognition:</strong> Identify recurring patterns, seasonal effects, and anomalies in historical data</li>
+        <li><strong>Understanding Trends:</strong> Determine whether a metric is growing, declining, or stable over time</li>
+        <li><strong>Seasonal Adjustment:</strong> Remove seasonal effects to understand underlying trend</li>
+        <li><strong>Anomaly Detection:</strong> Identify unusual spikes or dips (system failures, fraud, errors)</li>
+        <li><strong>Causal Analysis:</strong> Understand how one time series affects another (cross-correlation)</li>
+        <li><strong>Inventory/Resource Planning:</strong> Optimize stock levels, staffing, energy based on forecasted demand</li>
+        <li><strong>Signal Processing:</strong> Filter noise, extract meaningful signals from raw time series</li>
+      </ol>
+
+      <h4>Applications by Domain</h4>
+      <table>
+        <tr><th>Domain</th><th>Time Series Application</th></tr>
+        <tr><td>Finance</td><td>Stock price prediction, portfolio risk</td></tr>
+        <tr><td>Retail</td><td>Demand forecasting, inventory planning</td></tr>
+        <tr><td>Healthcare</td><td>Patient monitoring, epidemic forecasting</td></tr>
+        <tr><td>Energy</td><td>Power demand prediction, grid optimization</td></tr>
+        <tr><td>Manufacturing</td><td>Predictive maintenance, quality control</td></tr>
+        <tr><td>Climate</td><td>Weather forecasting, climate modeling</td></tr>
+      </table>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  <p>📚 Python & Machine Learning — Complete Exam Answer Guide | 5 Modules | 15 Marks Each</p>
+  <p style="margin-top:8px;font-size:0.78rem;">All code examples are executable Python. Use this guide as a comprehensive study reference.</p>
+</footer>
+
+</body>
+</html>
